@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file datatype="plaintext" original="ng2.template" source-language="en-US" target-language="es-ES">
+    <body>
+      <trans-unit id="confirmDialog.cancel" datatype="html">
+        <source> Cancel </source>
+        <target> Cancelar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dialogs/confirm-dialog/confirm-dialog.component.html</context>
+          <context context-type="linenumber">13,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="confirmDialog.ok" datatype="html">
+        <source>OK</source>
+        <target>De acuerdo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/dialogs/confirm-dialog/confirm-dialog.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leftBarMenu.titletop" datatype="html">
+        <source> Menu </source>
+        <target> Menú</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/left-bar-menu/left-bar-menu.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leftBarMenu.title.orders" datatype="html">
+        <source> Orders </source>
+        <target> Pedidos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/left-bar-menu/left-bar-menu.component.html</context>
+          <context context-type="linenumber">28,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leftBarMenu.title.delivery" datatype="html">
+        <source> Delivery </source>
+        <target> Entrega</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/left-bar-menu/left-bar-menu.component.html</context>
+          <context context-type="linenumber">38,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leftBarMenu.title.catalogs" datatype="html">
+        <source> Catalogs </source>
+        <target> Catálogos</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/left-bar-menu/left-bar-menu.component.html</context>
+          <context context-type="linenumber">48,50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leftBarMenu.title.help" datatype="html">
+        <source> Help </source>
+        <target> Ayuda</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/left-bar-menu/left-bar-menu.component.html</context>
+          <context context-type="linenumber">61,63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leftBarMenu.title.settings" datatype="html">
+        <source> Settings </source>
+        <target> Ajustes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/left-bar-menu/left-bar-menu.component.html</context>
+          <context context-type="linenumber">71,73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="leftBarMenu.title.logout" datatype="html">
+        <source> Logout </source>
+        <target> Cerrar sesión</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/left-bar-menu/left-bar-menu.component.html</context>
+          <context context-type="linenumber">82,84</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.orderSubTitle" datatype="html">
+        <source>Order #<x id="INTERPOLATION" equiv-text="{{order?.displayId}}"/> * placed at 14:01</source>
+        <target>Pedido n.º<x id="INTERPOLATION" equiv-text="{{order?.displayId}}"/> * realizado a las 14:01</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.labelBox" datatype="html">
+        <source>Estimated delivery time: <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{order.delivery.deliveryDateTime|date:&quot;HH:mm&quot;}}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></source>
+        <target>Tiempo de entrega estimado: <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/><x id="INTERPOLATION" equiv-text="{{order.delivery.deliveryDateTime|date:&quot;HH:mm&quot;}}"/><x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.firstOrder" datatype="html">
+        <source>First Order in your store!</source>
+        <target>¡Primer pedido en tu tienda!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.numOrders" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{order.customer.ordersCountOnMerchant}}"/> orders in your store!</source>
+        <target> <x id="INTERPOLATION" equiv-text="{{order.customer.ordersCountOnMerchant}}"/> pedidos en tu tienda.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.getintouch" datatype="html">
+        <source> Get in touch </source>
+        <target> Ponerse en contacto</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">20,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.zipcode" datatype="html">
+        <source>* Zip code</source>
+        <target>* Código postal</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.takeoutmsg" datatype="html">
+        <source> The Customer will pick up at the store. It is not necessary to send this order. </source>
+        <target> El Cliente recogerá en la tienda. No es necesario enviar este pedido.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">47,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.deliveryfee" datatype="html">
+        <source> Delivery fee </source>
+        <target> Gastos de envío</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">74,76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.totalordervalue" datatype="html">
+        <source> Total order value </source>
+        <target> Valor total del pedido</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">83,85</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderDetail.buttonslabel" datatype="html">
+        <source> <x id="ICU" equiv-text="{ b.label, select, Cancel {Cancel} Confirm {Confirm} }"/> </source>
+        <target>  <x id="ICU" equiv-text="{ b.label, select, Cancel {Cancel} Confirm {Confirm} }"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">104,106</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="40d71f28b26111c81cb487e40bcfba036ea10208" datatype="html">
+        <source>{VAR_SELECT, select, Cancel {Cancel} Confirm {Confirm}}</source>
+        <target> {VAR_SELECT, select, Cancel {Cancelar} Confirm {Confirmar}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-detail/order-detail.component.html</context>
+          <context context-type="linenumber">105</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b0e9c846d662601769d223522d171de8afe2ae64" datatype="html">
+        <source>{VAR_SELECT, select, Confirm order {Confirm order} Deliver until {Deliver until}}</source>
+        <target> {VAR_SELECT, select, Confirm order {Confirm order} Deliver until {Deliver until}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-status/order-status.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderStatus.todeliver" datatype="html">
+        <source> To deliver </source>
+        <target> Para entregar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-status/order-status.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orderStatus.takeaway" datatype="html">
+        <source> Take away </source>
+        <target> Quitar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/order-status/order-status.component.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="splash.title" datatype="html">
+        <source>Loading Admin Client</source>
+        <target>Cargando cliente administrador</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/splash/splash.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.title" datatype="html">
+        <source> Admin Login </source>
+        <target> Inicio de sesión de administrador</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/auth.component.html</context>
+          <context context-type="linenumber">10,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.username" datatype="html">
+        <source>Username</source>
+        <target>Nombre de usuario</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/auth.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.password" datatype="html">
+        <source>Password</source>
+        <target>Contraseña</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/auth.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.enter" datatype="html">
+        <source> Enter </source>
+        <target> Ingresar</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/auth.component.html</context>
+          <context context-type="linenumber">31,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.loginwithwallet" datatype="html">
+        <source> Login with wallet </source>
+        <target> Iniciar sesión con billetera</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/auth.component.html</context>
+          <context context-type="linenumber">35,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.or" datatype="html">
+        <source> Or </source>
+        <target> o</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/auth.component.html</context>
+          <context context-type="linenumber">39,41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="auth.create" datatype="html">
+        <source> Create new account </source>
+        <target> Crear una nueva cuenta</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/auth/auth.component.html</context>
+          <context context-type="linenumber">43,45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseMerchantGroup.title" datatype="html">
+        <source>Choose a Merchant Group:</source>
+        <target>Elija un grupo de comerciantes:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/choose-merchant-group/choose-merchant-group.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseMerchantGroup.create" datatype="html">
+        <source> Create New </source>
+        <target> Crear nuevo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/choose-merchant-group/choose-merchant-group.component.html</context>
+          <context context-type="linenumber">16,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseMerchant.title" datatype="html">
+        <source>Choose merchant:</source>
+        <target>Elija comerciante:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/choose-merchant/choose-merchant.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="chooseMerchant.create" datatype="html">
+        <source> Create new Merchant </source>
+        <target> Crear nuevo comerciante</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/choose-merchant/choose-merchant.component.html</context>
+          <context context-type="linenumber">15,17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="help.title" datatype="html">
+        <source>Support</source>
+        <target>Apoyo</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/help/help.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="help.text" datatype="html">
+        <source> Sorry. We don´t have a support plan for now :-( </source>
+        <target> Lo siento. No tenemos un plan de soporte por ahora :-(</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/help/help.component.html</context>
+          <context context-type="linenumber">7,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orders.now" datatype="html">
+        <source>Now</source>
+        <target>ahora</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/orders/orders.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orders.scheduled" datatype="html">
+        <source>Scheduled</source>
+        <target>Programado</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/orders/orders.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orders.search" datatype="html">
+        <source>Search order</source>
+        <target>Orden de búsqueda</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/orders/orders.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="orders.filters" datatype="html">
+        <source>Filters</source>
+        <target>Filtros</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/orders/orders.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="de57a754cbd59053472bffae2b127c1ce36a8386" datatype="html">
+        <source>{VAR_SELECT, select, Pending {Pending} In Preparation {In Preparation}}</source>
+        <target> {VAR_SELECT, select, Pending {Pending} In Preparation {In Preparation}}</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/orders/orders.component.html</context>
+          <context context-type="linenumber">31,34</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,31 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFill >
+    <h1 i18n="@@chooseMerchantGroup.title">{{ 'chooseMerchantGroup.title' | translate }}</h1>
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
+        <div class="optionbox" *ngIf="gettingFromWeb3 && MerchantGroupList.length==0" >
+            <div class="appicon" [class.mat-elevation-z10]="true" 
+            fxLayout="column" fxLayoutAlign="center center"
+            >
+                <mat-spinner></mat-spinner>
+                <div class="icon_caption">
+                    {{ 'chooseMerchantGroup.loadingfromtoken' | translate }}
+                </div>
+            </div>
+        </div>
+        <div class="optionbox" *ngFor="let mgrp of MerchantGroupList">
+            <div class="appicon" [class.mat-elevation-z10]="true" 
+            fxLayout="column" fxLayoutAlign="center center"
+            (click)="selectMerchantGroup(mgrp)">
+                <img class="icoapp" *ngIf="mgrp.appicon" [src]="mgrp.appicon" >
+                <div class="icon_caption">
+                    {{mgrp.name}}
+                </div>
+            </div>
+        </div>
+        <div>
+
+            <button mat-raised-button color="primary" (click)="createNewMerchantGroup()" i18n="@@chooseMerchantGroup.create">
+                {{ 'chooseMerchantGroup.createNew' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

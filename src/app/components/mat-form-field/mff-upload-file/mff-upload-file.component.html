@@ -1,0 +1,7 @@
+
+    <mat-form-field fxFlex="100" appearance="fill">
+        <mat-label>{{label}}</mat-label>
+        <input [value]="text" matInput readonly (click)="uploadFile()">
+        <mat-icon class="icoinput" matSuffix (click)="uploadFile()">link</mat-icon>    
+        <mat-progress-bar *ngIf="progress>0" mode="determinate" [value]="(progress)"></mat-progress-bar>
+    </mat-form-field>

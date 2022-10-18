@@ -1,0 +1,60 @@
+.item-name{
+    padding-bottom: 20px;
+}
+.tab:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.tab{
+    padding-right: 20px;
+}
+.currentTab-underline{
+    text-decoration: underline;
+}
+.body{
+    padding-top: 35px;
+}
+.footer-btn{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 65vw;
+    padding:  20px;
+}
+.btn-cancel{
+    margin-right: 20px;
+}
+.btn-create{
+    margin-right: 10px;
+}
+.btns-create-copy{
+    padding-top: 20px;
+}
+.question{
+    padding:15px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+mat-radio-button{
+    padding-bottom: 10px;
+}
+.title-option{
+    padding-bottom: 20px;
+}
+.group{
+    padding:25px 15px;
+    border-radius: 10px 10px 0px 0px;
+}
+.group-list{
+    padding: 20px 10px;
+    border-radius: 0px 0px 10px 10px;
+}
+.box-list{
+    
+}
+.group-list-item{
+    margin-bottom: 15px;
+}
+.height{
+    height: 100px;
+}

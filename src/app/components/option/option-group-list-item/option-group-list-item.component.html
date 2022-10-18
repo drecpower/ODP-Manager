@@ -1,0 +1,53 @@
+<div class="content light-grey-border-color" fxLayout="column">
+
+    <div fxLayout="row" class="header extra-light-grey-background-color">
+        <div fxFlex="10" fxLayoutAlign="center center">
+            <mat-icon [matMenuTriggerFor]="menu">menu</mat-icon>
+        </div>
+        <div fxFlex="60" class="name" fxLayout="column">
+            <div class="heading3">{{ogp.optionGroupIdNavigation.name}}</div>
+            <div class="grey-color body3-semibold">{{ogp.optionGroupIdNavigation.option.length}} 
+                <span *ngIf="ogp.optionGroupIdNavigation.option.length==1">{{ 'optionGroupList.option' | translate }}</span>
+                <span *ngIf="ogp.optionGroupIdNavigation.option.length>1">{{ 'optionGroupList.options' | translate }}</span>
+            </div>
+        </div>
+        <div fxFlex="30" fxLayout="row">
+            <div fxFlex="50" class="obligatoriness" fxLayoutAlign="center center">
+                <div class="label body5-semibold grey-background-color" *ngIf="ogp.min ==0">{{ 'optionGroupList.optional' | translate }}</div>
+                <div class="label body5-semibold black-background-color white-color" *ngIf="ogp.min >0">{{ 'optionGroupList.mandatoryu' | translate }}</div>
+            </div>
+            <div fxFlex="50">
+                <div fxFlex="50" fxLayoutAlign="center center">
+                    <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="edit()">{{ 'optionGroupList.edit' | translate }}</button>
+                        <button mat-menu-item (click)="delete()">{{ 'optionGroupList.deleteComplement' | translate }}</button>
+                        <button mat-menu-item>{{ 'optionGroupList.duplicateComplement' | translate }}</button>
+                    </mat-menu>
+                </div>
+                <div class="toggle" fxFlex="50" fxLayoutAlign="center center">
+                    <!-- <mat-icon class="primary-color">
+                        keyboard_arrow_down</mat-icon> -->
+                    <mat-icon class="primary-color">
+                        keyboard_arrow_up
+                    </mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngFor="let option of ogp.optionGroupIdNavigation.option" class="option extra-light-grey-border-bottom-color">
+        <div fxFlex="15" class="image">
+            <img *ngIf="true" src="../../../assets/svgs/empty-image.svg">
+            <img *ngIf="false" src="">
+        </div>
+        <div fxFlex="65" class="option-name body1" fxLayoutAlign="start center">
+            {{option.productIdNavigation.name}}
+        </div>
+        <div  fxFlex="20" class="option-price body1" fxLayoutAlign="end center">
+            {{option.price|currency}}
+        </div>
+
+
+    </div>
+
+</div>

@@ -1,0 +1,7 @@
+<app-splash *ngIf="!(systemSvc.isSystemReadyAsync|async)"></app-splash>
+<div class="appframe" fxLayout="row" fxFill >
+    <app-left-bar-menu></app-left-bar-menu>
+    <div *ngIf="(systemSvc.isSystemReadyAsync|async)" [@fadeInOutAnimation] [@routeAnimations]="route.routerState.snapshot.url.substring(1)" fxFlex class="inscroll">
+            <router-outlet ></router-outlet>
+    </div>
+</div>

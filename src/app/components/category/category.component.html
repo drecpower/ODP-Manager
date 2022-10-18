@@ -1,0 +1,63 @@
+<div class="content grey-border-color"
+    [ngClass]="{'extra-light-grey-background-color': category.status == 'UNAVAILABLE', 'white-80-background-color': category.status == 'AVAILABLE'}">
+    <div fxLayout="row" class="header">
+        <div fxFlex="60" class="heading2 category-name pointer" (click)="editCategory()">
+            {{category.name}}
+        </div>
+        <div fxFlex="20">
+            <div *ngIf="!loadDelete">
+                <button (click)="alterStatus('UNAVAILABLE')" *ngIf="category.status == 'AVAILABLE'"
+                    class="button-status btn btn-pause btn-pause-matte primary-border-color body5-semibold primary-color"
+                    mat-button>{{ 'ccategory.pause' | translate }}</button>
+                <button *ngIf="category.status == 'AVAILABLE'"
+                    class="button-status btn btn-activate white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                    mat-raised-button>{{ 'ccategory.activated' | translate }}</button>
+                <button *ngIf="category.status == 'UNAVAILABLE'"
+                    class="button-status btn btn-pause white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                    mat-raised-button>{{ 'ccategory.paused' | translate }}</button>
+                <button (click)="alterStatus('AVAILABLE')" *ngIf="category.status == 'UNAVAILABLE'"
+                    class="button-status btn btn-activate btn-pause-matte primary-border-color primary-border-color body5-semibold primary-color"
+                    mat-button>{{ 'ccategory.activate' | translate }}</button>
+            </div>
+        </div>
+        <div fxFlex="20" fxLayout="row" fxLayoutAlign="end start">
+            <div class="toggle" *ngIf="!loadDelete">
+                <mat-icon class="primary-color" *ngIf="showItems" (click)="toggleShowItems()">keyboard_arrow_down
+                </mat-icon>
+                <mat-icon class="primary-color" *ngIf="!showItems" (click)="toggleShowItems()">keyboard_arrow_up
+                </mat-icon>
+            </div>
+            <div *ngIf="loadDelete">
+                <mat-spinner class="spinner" [diameter]="30"></mat-spinner>
+            </div>
+            <div *ngIf="!loadDelete">
+                <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="editCategory()">{{ 'ccategory.edit' | translate }}</button>
+                    <button mat-menu-item (click)="deleteCategory()">{{ 'ccategory.delete' | translate }}</button>
+                    <button mat-menu-item>{{ 'ccategory.duplicate' | translate }}</button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+    <div class="hr" *ngIf="category.item && category.item.length>0 && !loadDelete">
+        <hr class="light-grey-color" />
+    </div>
+    <div *ngIf="!loadDelete && category.template != 'PIZZA'">
+        <div class="itens" fxLayout="column" *ngFor="let item of category.item"
+            [ngClass]="{'extra-light-grey-background-color': item.status == 'UNAVAILABLE', 'white-80-background-color': item.status == 'AVAILABLE'}">
+            <app-category-list-item [item]="item"></app-category-list-item>
+        </div>
+    </div>
+    <div class="hr" *ngIf="!loadDelete">
+        <hr class="extra-light-grey-color" />
+    </div>
+    <div class="footer" *ngIf="!loadDelete">
+        <div fxFlex.sm="100" class="add-item">
+            <button class="btn btn-add-category primary-border-color primary-color" mat-button (click)="addItem()">
+                <mat-icon class="primary-color">add</mat-icon>
+                {{ 'ccategory.addItem' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

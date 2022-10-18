@@ -1,0 +1,76 @@
+<div class="divContent" fxLayout="row" [ngClass]="{'dark':systemSvc.getTheme()=='dark'}">
+    <div class="barSelected" [ngClass]="{'selected': selected==true}"></div>
+    <div fxLayout="column" class="content">
+        <div fxLayout="row">
+            <div fxFlex="80" fxLayout="row">
+                <div class="displayId"> #{{orderStatus.storedOrder.order.displayId}} </div>
+                <div class="custumerName">&nbsp; {{orderStatus.storedOrder.order.customer.name}}</div>
+            </div>
+            <div class="iconStatus" fxFlex="20" fxLayoutAlign="end end">
+                <div class="divFaIcon"
+                    [ngStyle]="{'background-color': osd[orderStatus.storedOrder.status].backgroundColor,'color':osd[orderStatus.storedOrder.status].color}">
+                    <fa-icon *ngIf="orderStatus.storedOrder.status"
+                        icon="{{osd[orderStatus.storedOrder.status].instruction?.icon}}"></fa-icon>
+                </div>
+            </div>
+        </div>
+        <div class="instructions">
+            <span i18n="@@orderStatus.instruction">
+                {{('orderStatus.instructionLabels.'+osd[orderStatus.storedOrder.status].instruction.label)|translate}}
+            </span>
+            <span class="bold" *ngIf="orderStatus.storedOrder.status=='CFM'">
+                {{orderStatus?.storedOrder.order?.delivery?.deliveryDateTime|date:"HH:mm"}} </span>
+        </div>
+        <div class="driver" *ngIf="orderStatus.storedOrder.driver">
+            <fa-icon icon="motorcycle" class="cssFaIcon"></fa-icon>
+            <span class="name" matTooltip="Info about the action" matTooltipPosition="below"
+                matTooltipHideDelay="100000">{{orderStatus.storedOrder.driver.workerName}}</span>
+            <span i18n="@@orderStatus.driverStatus">
+                {{('orderStatus.driverStatus.'+orderStatus.storedOrder.driver.status)|translate}}
+            </span>
+        </div>
+        <div class="customerArrived" *ngIf="orderStatus.storedOrder.pickupAreaAssigned">
+            <fa-icon icon="car" class="cssFaIcon"></fa-icon>
+            <span  i18n="@@orderStatus.customerArrived">{{ 'orderStatus.customerArrived' | translate }} </span>
+            <span class="bold" >
+                {{orderStatus.storedOrder.pickupAreaAssigned.PICKUP_AREA_TYPE}} : 
+                {{orderStatus.storedOrder.pickupAreaAssigned.PICKUP_AREA_CODE}}
+            </span>
+        </div>
+        <div class="cancelModal" [@fadeInOutAnimation] *ngIf="orderStatus.storedOrder.consumerRequestCancellation" fxLayout="column">
+            <span i18n="@@orderStatus.custumerRequestCancellation"> {{ 'orderStatus.customerRequestCancellation' | translate }} </span>
+            <div>
+                <button fxFlex class="GreenButtton" mat-raised-button (click)="acceptCancellation()">
+                    <!-- <fa-icon icon="{{b.icon}}" class="cssFaIcon"></fa-icon> -->
+                    <span i18n="@@orderStatus.buttonCancel">
+                        {{ 'orderStatus.buttonAccept' | translate }}
+                    </span>
+                </button>
+                <button fxFlex class="RedButtton" mat-raised-button (click)="denyCancellation()">
+                    <!-- <fa-icon icon="{{b.icon}}" class="cssFaIcon"></fa-icon> -->
+                    <span i18n="@@orderStatus.buttonCancel">
+                        {{ 'orderStatus.buttonDeny' | translate }}
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="iconOrderType">
+            <div *ngIf="orderStatus.storedOrder.order.orderType=='DELIVERY'" class="deliveryLabelIcon">
+                <fa-icon icon="motorcycle" class="cssFaIcon"></fa-icon>
+                <span i18n="@@orderStatus.todeliver">
+                    {{ 'orderStatus.todeliver' | translate }}
+                </span>
+
+            </div>
+            <div *ngIf="orderStatus.storedOrder.order.orderType!='DELIVERY'" class="takeoutLabelIcon">
+                <fa-icon icon="shopping-bag" class="cssFaIcon"></fa-icon>
+                <span i18n="@@orderStatus.takeaway">
+                    {{ 'orderStatus.takeaway' | translate }}
+                </span>
+
+            </div>
+            <mat-progress-bar mode="indeterminate" *ngIf="orderStatus.storedOrder.processingStatus!=null">
+            </mat-progress-bar>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+.content {
+    padding: 25px;
+    overflow-y: scroll;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.buttons{
+    padding-top: 15px;
+}
+
+// .filter-categories {
+//     padding: 10px 10px;
+//     border-radius: 5px;
+//     margin-bottom: 10px;
+// }
+
+.btn-add-category {
+    padding-bottom: 5px;
+}
+
+.spinner-catalog{
+    position: relative;
+    left: 45%;
+    top: 45%;
+}
+
+.add-category {
+    @media only screen and (min-width: 960px) {
+        padding-right: 10px;
+    }
+    padding-bottom: 10px;
+}
+
+.add-item{
+    padding-bottom: 10px;
+}
+
+.reorder {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+}

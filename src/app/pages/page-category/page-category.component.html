@@ -1,0 +1,52 @@
+<div class="content" fxLayout="column" *ngIf="!catalogDataSvc.loadCatalog">
+    <div class="heading2" fxLayoutAlign="center">
+        {{systemSvc.selectedMerchantGroup.name }} - {{systemSvc.selectedMerchant.name}}
+    </div>
+    <mat-select [(ngModel)]="catalogDataSvc.catalog" placeholder="">
+        <mat-option class="body1-semibold" value="">{{ 'pageCategory.allcategories' | translate }}</mat-option>
+        <mat-option *ngFor="let catalog of catalogDataSvc.catalogs" [value]="catalog">{{catalog.type}}</mat-option>
+    </mat-select>
+    <mat-tab-group #tabs [disableRipple]="false">
+        <mat-tab label="{{ 'pageCategory.categories' | translate }}"></mat-tab>
+        <mat-tab label="{{ 'pageCategory.integration' | translate }}"></mat-tab>
+    </mat-tab-group>
+    <div fxLayout.sm="column" fxLayout.xs="column" fxLayout.gt-sm="row">
+        <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.gt-sm="50" class="buttons" fxLayout.sm="column" fxLayout.xs="column"
+            fxLayout.gt-sm="row">
+            <div fxFlex.sm="100" class="add-category">
+                <button class="btn btn-add-category primary-background-color white-60-color" mat-raised-button
+                    (click)="addCategory()">
+                    <mat-icon class="white-color">add</mat-icon>
+                    {{ 'pageCategory.add' | translate }}
+                </button>
+            </div>
+            <div fxFlex.sm="100" class="add-item">
+                <button class="btn btn-add-category primary-border-color primary-color" mat-button (click)="addItem()">
+                    <mat-icon class="primary-color">add</mat-icon>
+                    {{ 'pageCategory.addItem' | translate }}
+                </button>
+            </div>
+        </div>
+        <div class="reorder" fxFlex.xs="100" fxFlex.sm="100" fxFlex.gt-sm="50" fxLayout.sm="column" fxLayout.xs="column"
+            fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="end start">
+            <div fxFlex.sm="100">
+                <button class="btn reorder primary-color" mat-button (click)="reorder()">
+                    <mat-icon class="primary-color">menu</mat-icon>
+                    <span class="body1-semibold primary-color"> {{ 'pageCategory.reorder' | translate }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="filter-categories" *ngIf="!catalogDataSvc.loadCatalog">
+        <mat-select [(ngModel)]="catalogDataSvc.catFilter" (selectionChange)="catalogDataSvc.filterCategories()"
+            class="body1-semibold">
+            <mat-option class="body1-semibold" value="">{{ 'pageCategory.allcategories' | translate }}</mat-option>
+            <mat-option class="body1-semibold" *ngFor="let c of catalogDataSvc.categoriesDb" [value]="c.id">{{c.name}}
+            </mat-option>
+        </mat-select>
+    </div>
+    <app-category fxLayout="column" *ngFor="let cat of catalogDataSvc.categories" [category]="cat"></app-category>
+</div>
+<div class="spinner-catalog" *ngIf="catalogDataSvc.loadCatalog">
+    <mat-spinner></mat-spinner>
+</div>

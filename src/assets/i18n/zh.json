@@ -1,0 +1,338 @@
+{
+	"auth": {
+		"create": "建立新帐户",
+		"enter": "输入",
+		"loginwithwallet": "将您的钱包与 Metamask 连接",
+		"nometamaskmsg": "此应用程序需要安装并运行 Metamask。请安装 Metamask 并重试。",
+		"nometamasktitle": "找不到元掩码",
+		"or": "要么",
+		"ordownload_server": "下载我们的服务器软件并运行您自己的实例。",
+		"pasword": "密码",
+		"title": "登录",
+		"username": "用户名"
+	},
+	"categoryEditor": {
+		"alter": "Alter",
+		"alwaysavailable": "始终可用",
+		"cancel": "取消",
+		"continue": "继续",
+		"desc": "选择类别模板以拆分菜单",
+		"descOption": "该商品将在餐厅营业时提供",
+		"details": "类别详情",
+		"foods": "食品、零食、甜点",
+		"hereyou": "您可以在此处定义客户何时能够购买属于此类别的商品。",
+		"mainItens": "主要内容",
+		"mainitens": "主要内容",
+		"name": "分类名称",
+		"newcat": "新类别",
+		"newcategory": "新类别",
+		"optDesc": "选择该项目在应用程序中可用的时间段",
+		"optionsAvailable": "在特定日期和时间可用",
+		"pizza": "比萨",
+		"pizzaAvailability": "可用性",
+		"save": "节省",
+		"template": "模板"
+	},
+	"categoryListItem": {
+		"activate": "启用",
+		"activated": "活性",
+		"delete": "删除项目",
+		"dlg": {
+			"msg": "是否要删除该项目\"",
+			"title": "注意"
+		},
+		"duplicate": "重复项目",
+		"edit": "编辑项目",
+		"editbtn": "编辑",
+		"mandatory": "强制性的",
+		"max": "最大限度：",
+		"min": "分钟:",
+		"optional": "可选的",
+		"pause": "暂停",
+		"paused": "已暂停"
+	},
+	"ccategory": {
+		"activate": "启用",
+		"activated": "活性",
+		"addItem": "新增项目",
+		"delete": "删除",
+		"dlg": {
+			"msg": "是否要删除类别“",
+			"title": "注意"
+		},
+		"duplicate": "重复",
+		"edit": "编辑",
+		"pause": "暂停",
+		"paused": "已暂停"
+	},
+	"chooseMerchant": {
+		"create": "创建新商店",
+		"title": "选择店铺："
+	},
+	"chooseMerchantGroup": {
+		"createNew": "创建新的",
+		"loadingfromtoken": "从令牌加载...",
+		"title": "选择品牌："
+	},
+	"confirmDialog": {
+		"cancel": "取消",
+		"ok": "好"
+	},
+	"help": {
+		"accessthe": "访问",
+		"howTo1": "此应用程序用于管理 ODP-Store。在这里，您可以接收您的订单，更新您的产品目录并发布您的“客户订单应用程序”。",
+		"howTo2": "这些功能中的每一个都可以通过左角的侧边菜单访问。",
+		"howToSteps": "通过 3 个步骤开始：",
+		"howToUseTitle": "如何使用这个应用程序",
+		"step1end": "侧菜单上的选项并使用图像、价格和选项注册您的产品目录。",
+		"step2end": "发布您的客户订单应用程序。选择“生成并发布”。",
+		"step3": "将您新生成的客户订购应用程序链接分享给您的客户，将您的域指向它并在",
+		"step3end": "侧面菜单中的选项。",
+		"thentogo": "然后去",
+		"title": "欢迎来到开放交付平台",
+		"warningMsg": "该软件仍在开发中，可能存在错误或错误，可能功能不完整，可能会受到影响\n            到物质变化。\n            请自行承担使用风险。",
+		"warningReport": "请向我们的 github 存储库报告任何错误或问题。",
+		"warningTitle": "警告"
+	},
+	"itemDetails": {
+		"category": "类别",
+		"chooseImage": "选择图片",
+		"description": "描述",
+		"descriptionImg": "出现在列表和菜肴详细信息中。",
+		"descriptionPlaceholder": "蔬菜、沙拉和您选择的碳水化合物",
+		"format": "格式：",
+		"itemImage": "商品图片",
+		"mandatory": "强制性的",
+		"maxWeight": "最大重量：",
+		"minResolution": "最小分辨率：",
+		"name": "产品名称",
+		"posCode": "销售点代码"
+	},
+	"itemEditor": {
+		"cancel": "取消",
+		"complementGroups": "补充组成该项目的组",
+		"continue": "继续",
+		"copyfrom": "从另一个项目复制",
+		"createAddon": "创建附加组",
+		"newItem": "新物品",
+		"nocomplement": "不，这个项目没有补充",
+		"save": "保存",
+		"selectOption": "选择一个选项",
+		"tab": {
+			"Availability": "可用性",
+			"Complement": "补充",
+			"Details": "细节",
+			"Price": "价格"
+		},
+		"yescomplement": "是的，这个项目有补充"
+	},
+	"itemPrice": {
+		"applyDiscount": "申请折扣",
+		"currentPrice": "目前的价格",
+		"discountPercent": "折扣百分比",
+		"mandatory": "强制性的",
+		"newPrice": "新价格",
+		"price": "价钱",
+		"removeDiscount": "移除折扣"
+	},
+	"leftBarMenu": {
+		"title": {
+			"catalogs": "产品目录",
+			"help": "帮助",
+			"logout": "登出",
+			"orders": "命令",
+			"publish": "发布",
+			"settings": "设置"
+		}
+	},
+	"optionEditor": {
+		"activate": "启用",
+		"activated": "活性",
+		"addon": "附加名称",
+		"description": "描述",
+		"descriptionPlaceholder": "描述",
+		"dlg": {
+			"msg": "是否要删除类别“",
+			"title": "注意"
+		},
+		"mandatory": "强制性的",
+		"pause": "暂停",
+		"paused": "已暂停",
+		"placeholder": "$ 0,00",
+		"poscode": "销售点代码",
+		"price": "价钱",
+		"salestatus": "销售状态"
+	},
+	"optionGroupList": {
+		"deleteComplement": "删除补语",
+		"duplicateComplement": "重复补码",
+		"edit": "编辑",
+		"mandatoryu": "强制性的",
+		"option": "选项",
+		"optional": "可选的",
+		"options": "选项"
+	},
+	"optionGroupProductEditor": {
+		"aMandatory": "强制性的",
+		"addaddon": "添加插件",
+		"cancel": "取消",
+		"complementsHeading": "您的商店生产的物品，例如午餐盒、蛋糕和零食。",
+		"indicate": "指明是否需要此类别才能点菜",
+		"indicateHowMany": "表示可以选择多少个项目",
+		"mandatory": "强制性的",
+		"maximum": "最大值",
+		"minimum": "最低限度",
+		"name": "补组名",
+		"needadd": "客户必须选择 1 件或多件商品才能将订单添加到购物车",
+		"newname": "新的补充组名称",
+		"next": "下一个",
+		"optional": "可选的",
+		"optionalMsg": "客户可能会或可能不会选择项目",
+		"prepared": "准备好的",
+		"quantity": "数量",
+		"tab":{
+			"Details":"详细信息",
+			"Complements":"补语"
+		}
+	},
+	"orderDetail": {
+		"deliveryFee": "送货费",
+		"estimatedDelivery": "预计送达时间：",
+		"firstOrder": "在您的商店中的第一个订单！",
+		"getintouch": "保持联系",
+		"ordersInYourStore": "在您的商店订购！",
+		"placedAt": "放在",
+		"prderSubtitle": "订购",
+		"takeoutmsg": "客户将在商店取货。无需发送此订单。",
+		"total": "总订单价值",
+		"zipcode": "邮政编码"
+	},
+	"orderStatus": {
+		"buttonAccept": "接受",
+		"buttonDeny": "拒绝",
+		"customerArrived": "客户到了，正在等待：",
+		"customerRequestCancellation": "客户要求取消！",
+		"driverStatus": {
+			"accepted the request": "接受了请求",
+			"arrived at destination ": "到达目的地",
+			"arrived at store": "到达商店",
+			"collected order": "收集的订单",
+			"going to store": "去商店"
+		},
+		"instructionLabels": {
+			"Confirm order": "确认订单",
+			"Deliver until": "交付至"
+		},
+		"takeaway": "带走",
+		"todeliver": "交付"
+	},
+	"orders": {
+		"filters": "过滤器",
+		"filtersValues": {
+			"On Delivery": "投递中",
+			"Pending": "有待"
+		},
+		"now": "现在",
+		"scheduled": "计划",
+		"search": "订单搜索",
+		"statusTextValues": {
+			"Canceled": "取消",
+			"Concluded": "总结",
+			"Dispatched": "派遣",
+			"In Preparation": "在准备",
+			"Order with ocurrences": "订单出现次数",
+			"Pending": "有待",
+			"Ready To Pickup": "准备取货"
+		}
+	},
+	"pageCategory": {
+		"add": "添加类别",
+		"addItem": "新增项目",
+		"allcategories": "所有类别",
+		"categories": "分类",
+		"integration": "积分",
+		"reorder": "重新排序"
+	},
+	"pizzaSizeEditor": {
+		"activate": "启用",
+		"activated": "活性",
+		"codpdv": "代码 PDV",
+		"indicate": "请在此处注明您生产的比萨饼的尺寸、切了多少块，甚至您的餐厅每种尺寸组合了多少口味：",
+		"name": "名称",
+		"newsize": "新尺寸",
+		"pause": "暂停",
+		"paused": "已暂停",
+		"pieces": "件",
+		"qtyFlavors": "数量。口味",
+		"qtyPieces": "数量。件",
+		"salesum": "销售摘要和状态",
+		"sizes": "尺码"
+	},
+	"publish": {
+		"alreadyupdated": "您的 NFT 代币已更新",
+		"appname": "应用名称",
+		"available": "可用名称",
+		"chooseIpfsGateway": "选择一个 ipfs 网关",
+		"customgatewayendpoint": "IPFS HTTP 网关 API 端点：",
+		"genbefore": "请在继续之前生成“ODP-客户订单应用程序”",
+		"gencustomapp": "在 IPFS 上生成带有自定义清单的 ODP 客户订单应用程序",
+		"generateandpublish": "生成和发布",
+		"genhashdata": "在 IPFS 上生成 ODP-Store HashData",
+		"lastknown": "最后已知的出版物",
+		"message": "请检查下面所需的发布选项，然后单击“生成并发布”",
+		"mintnft": "薄荷 NFT",
+		"mintorupdatenft": "铸造或更新你的 NFT",
+		"nft": {
+			"storename": "ODP商店名称：",
+			"unavailable": "名称不可用",
+			"youowner": "你是所有者"
+		},
+		"notfound": "未找到",
+		"pleaseconnect": "将 Metamask 连接到 PolygonNetwork。",
+		"posthashdata": "将新的哈希数据发布到 OrbitDB 哈希数据通道",
+		"pubipns": "Publish ODP-Customer Order App new CID到IPNS（固定地址）",
+		"publicStoreName": "公共商店名称：",
+		"publication": "出版物",
+		"publicationsResults": "发表结果",
+		"result": {
+			"customerAppLink": "ODP客户订单应用链接：",
+			"hashdatalink": "ODP 存储 HashData 链接：",
+			"ipnslink": "ODP客户订单APP IPNS链接："
+		},
+		"seeonopensea": "这家商店已经有一个所有者。请选择其他名称，或在 OpenSea.io 上交易此商店",
+		"shortname": "简称",
+		"show less options": "显示更少的选项",
+		"show more options": "显示更多选项",
+		"title": "发布订单应用",
+		"updateIcon": "图标更新",
+		"updatenft": "更新 NFT",
+		"wrongnet": "错误的网络。请，"
+	},
+	"splash": {
+		"title": "正在加载管理器应用..."
+	},
+	"system": {
+		"logout": "确认登出",
+		"msg": "你确定要退出吗？"
+	},
+	"wizardMerchant": {
+		"customEndpoint": "自定义端点：",
+		"email": "电子邮件",
+		"emailPlaceholder": "前任。 your@email.com",
+		"name": "名称",
+		"orderschannel": "订单渠道",
+		"phone": "电话号码",
+		"phoneMask": "前任。 +9 (99) 999-999-999",
+		"register": "注册商店",
+		"street": "街道地址",
+		"title": "让我们注册您的商店"
+	},
+	"wizardNewMerchantGroup": {
+		"appname": "应用名称",
+		"name": "名称",
+		"namePlaceholder": "输入您的公司名称",
+		"register": "注册品牌",
+		"shortname": "应用短名称",
+		"title": "让我们注册您的品牌"
+	}
+}

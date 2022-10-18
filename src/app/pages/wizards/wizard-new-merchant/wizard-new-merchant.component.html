@@ -1,0 +1,58 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFill>
+    <div class="wizard-logo-sticker" [class.mat-elevation-z10]="true">
+        <img class="icoapp" *ngIf="!imgLogo" src="assets/imgs/logo.png">
+        <img class="icoapp" *ngIf="imgLogo" [src]="imgLogo">
+    </div>
+    <div class="wizard-card" [class.mat-elevation-z6]="true">
+        <h1>{{ 'wizardMerchant.title' | translate }}</h1>
+        <div fxLayout="row wrap">
+            <mat-form-field fxFlex="100" appearance="fill">
+                <mat-label>{{ 'wizardMerchant.name' | translate }}</mat-label>
+                <input matInput placeholder="Enter your local store name" [(ngModel)]="formMerchant.name">
+            </mat-form-field>
+            <mat-form-field fxFlex="100" appearance="fill">
+                <mat-label>{{ 'wizardMerchant.street' | translate }}</mat-label>
+                <input matInput placeholder="Ex. 123 Main Street " [(ngModel)]="formMerchant.streetAddress">
+            </mat-form-field>
+            <mat-form-field fxFlex="100" appearance="fill">
+                <mat-label>{{ 'wizardMerchant.phone' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'wizardMerchant.phoneMask' | translate }}" [(ngModel)]="formMerchant.phone">
+            </mat-form-field>
+            <div fxFlex fxLayout="row" fxLayoutAlign="start center" class="">
+                <small (click)="this.showMoreOptions=!this.showMoreOptions" class="hyperlink bottomstick">
+                    {{ 'publish.show '+(this.showMoreOptions?'less':'more')+' options'|translate }}
+                    {{this.showMoreOptions?'▲':'▼'}}</small>
+            </div>
+
+            <mat-form-field fxFlex="100" appearance="fill" *ngIf="this.showMoreOptions">
+                <mat-label>{{ 'wizardMerchant.email' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'wizardMerchant.emailPlaceholder' | translate }}" [(ngModel)]="formMerchant.email">
+            </mat-form-field>
+
+            <mat-form-field fxFlex="100" appearance="fill" *ngIf="this.showMoreOptions">
+                <mat-label>{{ 'wizardMerchant.orderschannel' | translate }}</mat-label>
+                <mat-select [(value)]="selectedOptChannel">
+                    <mat-option *ngFor="let opt of channelOptions" [value]="opt">
+                        {{opt}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field *ngIf="selectedOptChannel!=channelOptions[0]" fxFlex="100" appearance="fill">
+                <mat-label>{{ 'wizardMerchant.customEndpoint' | translate }}</mat-label>
+                <input matInput
+                    placeholder="Ex. /orbitdb/zdpuAqayxwvqAbrwRkAHwya5sqDbSL6iu3s738AXZ3eruMnLX/open-food-delivery-network "
+                    [(ngModel)]="formMerchant.delinetendpoint">
+            </mat-form-field>
+            <br>
+
+            <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center">
+                <button mat-raised-button color="primary" (click)="register()">
+                    {{ 'wizardMerchant.register' | translate }}
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</div>

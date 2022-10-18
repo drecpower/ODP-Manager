@@ -1,0 +1,134 @@
+<div class="divContent" fxFlex fxLayout="column" fxLayoutAlign="start stretch"
+    [ngClass]="{'dark':systemSvc.getTheme()=='dark'}">
+    <div fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button *ngIf="_isHandset" (click)="close()">
+            <mat-icon>
+                arrow_back
+            </mat-icon>
+        </button>
+        <div class="orderTitle">{{storedOrder.order.customer.name}}</div>
+    </div>
+
+    <div class="orderSubTitle">
+        <span i18n="@@orderDetail.orderSubTitle">{{ 'orderDetail.prderSubtitle' | translate }} #{{storedOrder.order?.displayId}} * {{ 'orderDetail.placedAt' | translate }} 14:01</span>
+        <!-- <span class="">* Localizador do pedido 6454876795</span> -->
+    </div>
+    <div class="divButton" fxLayout="row wrap">
+        <div class="labelBox">
+            <fa-icon icon="clock" class="cssFaIcon"></fa-icon>
+            <span i18n="@@orderDetail.labelBox">{{ 'orderDetail.estimatedDelivery' | translate }}
+                <b>{{storedOrder.order?.delivery?.deliveryDateTime|date:"HH:mm"}}</b> </span>
+        </div>
+        <div class="firstOrder">
+            <fa-icon icon="plus" class="cssFaIcon"></fa-icon>
+            <span *ngIf="storedOrder.order.customer.ordersCountOnMerchant==1" i18n="@@orderDetail.firstOrder">{{ 'orderDetail.firstOrder' | translate }}</span>
+            <span *ngIf="storedOrder.order.customer.ordersCountOnMerchant>1" i18n="@@orderDetail.numOrders">
+                {{storedOrder.order.customer.ordersCountOnMerchant}} {{ 'orderDetail.ordersInYourStore' | translate }}</span>
+        </div>
+        <div class="divBtn">
+            <button class="colorRed" mat-raised-button>
+                <fa-icon icon="comments" class="cssFaIcon"></fa-icon>
+                <span i18n="@@orderDetail.getintouch">
+                    {{ 'orderDetail.getintouch' | translate }}
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <div>
+
+    </div>
+
+    <div fxLayout="row wrap" class="address" *ngIf="storedOrder.order.orderType =='DELIVERY'">
+        <div fxFlex="20">
+            <fa-icon icon="motorcycle" class="cssFaIcon"></fa-icon>
+        </div>
+        <div fxFlex>
+            {{storedOrder.order?.delivery?.deliveryAddress?.streetName}},
+            {{storedOrder.order?.delivery?.deliveryAddress?.streetNumber}} -
+            {{storedOrder.order?.delivery?.deliveryAddress?.neighborhood}}
+            {{storedOrder.order?.delivery?.deliveryAddress?.city}} -
+            {{storedOrder.order?.delivery?.deliveryAddress?.state}}
+            <span i18n="@@orderDetail.zipcode">* {{ 'orderDetail.zipcode' | translate }}</span>
+            {{storedOrder.order?.delivery?.deliveryAddress?.postalCode}}
+            {{storedOrder.order.delivery?.deliveryAddress?.complement}}
+            {{storedOrder.order.delivery?.deliveryAddress?.reference}}
+        </div>
+    </div>
+    <div fxLayout="row wrap" class="address" *ngIf="storedOrder.order.orderType !='DELIVERY'">
+        <div fxFlex="20">
+            <fa-icon icon="people-carry" class="cssFaIcon"></fa-icon>
+        </div>
+        <div fxFlex="80" i18n="@@orderDetail.takeoutmsg">
+            {{ 'orderDetail.takeoutmsg' | translate }}
+        </div>
+    </div>
+
+    <div class="list" fxLayout="column">
+        <div class="itemHeader"
+            [ngStyle]="{'background-color': osd[storedOrder.status].backgroundColor,'color':osd[storedOrder.status].color}">
+            <div class="">{{osd[storedOrder.status].statusGroup}}</div>
+            <div class=""> {{getTime()}}</div>
+
+        </div>
+        <div class="listItem" *ngFor="let item of storedOrder.order.items">
+            <div fxFlex="10">
+                {{item.quantity}}x
+            </div>
+            <div fxFlex="70">
+                <div>
+                    <div>{{item.name}}</div>
+                    <div class="grey-color" *ngFor="let op of item.options">
+                        <span class="quantity white-60-background-color">{{op.quantity}}</span> <span> {{op.name}}</span>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex="20">
+                {{(item.quantity * item.unitPrice)|currency:getCurrencySymbol()}}
+            </div>
+        </div>
+        <div class="listItem itemDeliveryFee">
+            <div fxFlex="10">
+                <fa-icon icon="motorcycle" class="cssFaIcon"></fa-icon>
+            </div>
+            <div fxFlex="70" class="itemDeliveryFeeText" i18n="@@orderDetail.deliveryfee">
+                {{ 'orderDetail.deliveryFee' | translate }}
+            </div>
+            <div fxFlex="20">{{storedOrder.order.total.deliveryFee |currency:getCurrencySymbol()}}</div>
+        </div>
+        <div class="listItem itemDeliveryFee">
+            <div fxFlex="10">
+
+            </div>
+            <div fxFlex="70" class="ItemTotal" i18n="@@orderDetail.totalordervalue">
+                {{ 'orderDetail.total' | translate }}
+            </div>
+            <div fxFlex="20">{{storedOrder.order.total.subTotal|currency:getCurrencySymbol()}}</div>
+        </div>
+    </div>
+    <div class="divBottom">
+        <mat-divider></mat-divider>
+        <div fxLayout="row wrap">
+
+            <button>
+                <fa-icon icon="print" class="cssFaIcon"></fa-icon>
+            </button>
+
+            <div fxFlex>
+            </div>
+
+            <div *ngFor="let b of osd[storedOrder.status].buttons">
+                <button fxFlex [ngClass]="{'GreenButtton': b.value!='CAN', 'RedButtton' : b.value=='CAN' }"
+                    mat-raised-button (click)="changeStatus(storedOrder.id,b.value)"
+                    *ngIf="(storedOrder.order.orderType !='DELIVERY' &&  b.value!='DSP') || (storedOrder.order.orderType =='DELIVERY' && b.value!='RTP') "
+                    [disabled]="storedOrder.processingStatus">
+                    <fa-icon icon="{{b.icon}}" class="cssFaIcon"></fa-icon>
+                    <span i18n="@@orderDetail.buttonslabel">
+                        { b.label, select, Cancel {Cancel} Confirm {Confirm} }
+                    </span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>

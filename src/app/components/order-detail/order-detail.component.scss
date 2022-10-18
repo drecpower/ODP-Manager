@@ -1,0 +1,195 @@
+@import "../../../variables.scss";
+
+
+.divContent {
+  padding:15px;
+  padding-right:15px;
+  background-color: rgba(0,0,0,0.04);
+}
+
+.divButton {
+  padding-top: 10px;
+}
+
+.orderTitle {
+  font-size: 25px;
+  font-weight: 500;
+
+}
+.quantity{
+  width: 18px;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 4px;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+.orderSubTitle {
+  padding-top: 10px;
+
+}
+
+.divButttons {
+  text-align: right;
+}
+
+.GreenButtton {
+  background-color: rgb(58, 187, 58);
+  color: white;
+}
+
+.RedButtton {
+  background-color: red;
+  color: white;
+}
+
+.colorRed {
+  color: red;
+  font-weight: 400;
+}
+
+.divBtn {
+  margin-top: 15px;
+}
+
+.divBtn button {
+  padding: 7px;
+}
+
+button[mat-raised-button] {
+  margin-right: 10px;
+}
+
+.itemHeader {
+  height: 45px;
+  padding: 10px;
+  margin-bottom: 2px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.itemHeader div:first-child {
+  font-weight: bold;
+}
+
+.list {
+  margin-top: 15px;
+}
+
+.listItem {
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 2px;
+}
+
+.address {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+
+}
+
+mat-list-item {
+  background-color: white;
+}
+
+.labelBox {
+  margin-top: 15px;
+  margin-right: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.firstOrder {
+  margin-top: 15px;
+  margin-right: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+
+.itemDeliveryFeeText {
+  font-weight: bold;
+}
+
+.divBottom {
+  position: relative;
+  bottom: 0px;
+  height: 40px;
+}
+
+mat-divider {
+  margin: 10px 0px 10px 0px;
+
+}
+
+.dark {
+  .divContent {
+    padding:15px;
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .listItem {
+    height: 45px;
+    padding: 10px;
+    background-color: rgb(41, 41, 41);
+    margin-bottom: 2px;
+  }
+
+  .address {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(41, 41, 41);
+  
+  }
+  
+  mat-list-item {
+    background-color: rgb(41, 41, 41);
+  }
+
+  .labelBox {
+    margin-top: 15px;
+    margin-right: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(41, 41, 41);
+  }
+  
+  .firstOrder {
+    margin-top: 15px;
+    margin-right: 15px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(41, 41, 41);
+  }
+}
+
+
+// .headerPLC {
+//   background-color: #fde7e6;
+//   color: #d10c0c;
+// }
+
+// .headerCFM {
+//   background-color: #ffe9bb;
+//   color: #e99516;
+// }
+// .headerRTP {
+//   background-color: #c8efc8;
+//   color: #09b509;
+// }
+// .headerDSP {
+//   background-color: #c8efc8;
+//   color: #09b509;
+// }
+// .headerCON {
+//   background-color: lightgray;
+//   color: gray;
+// }
+// .headerCAN {
+//   background-color: lightgray;
+//   color: gray;
+// }

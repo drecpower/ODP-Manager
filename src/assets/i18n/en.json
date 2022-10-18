@@ -1,0 +1,338 @@
+{
+	"auth": {
+		"create": "Create new account",
+		"enter": "Enter",
+		"loginwithwallet": "Connect your wallet with Metamask",
+		"nometamaskmsg": "This application requires Metamask to be installed and running. Please install Metamask and try again.",
+		"nometamasktitle": "Metamask not found",
+		"or": "or",
+		"ordownload_server": "download our server software and get up your own instance running.",
+		"pasword": "Password",
+		"title": "Login",
+		"username": "Username"
+	},
+	"categoryEditor": {
+		"alter": "Alter",
+		"alwaysavailable": "Always available",
+		"cancel": "Cancel",
+		"continue": "Continue",
+		"desc": "Select category template to split your menu",
+		"descOption": "The item will be available whenever the restaurant is open",
+		"details": "Details of category",
+		"foods": "Foods, snacks, dessert",
+		"hereyou": "Here you define when customers will be able to buy items that fall within this category.",
+		"mainItens": "Main Itens",
+		"mainitens": "Main Itens",
+		"name": "Category name",
+		"newcat": "New Category",
+		"newcategory": "New Category",
+		"optDesc": "Select the periods when the item will be available in the app",
+		"optionsAvailable": "Available on specific days and times",
+		"pizza": "Pizza",
+		"pizzaAvailability": "Availability",
+		"save": "Save",
+		"template": "Template"
+	},
+	"categoryListItem": {
+		"activate": "Activate",
+		"activated": "Activated",
+		"delete": "Delete item",
+		"dlg": {
+			"msg": "Do you want to delete the item \"",
+			"title": "Atention"
+		},
+		"duplicate": "Duplicate item",
+		"edit": "Edit item",
+		"editbtn": "Edit",
+		"mandatory": "MANDATORY",
+		"max": "Max:",
+		"min": "Min:",
+		"optional": "OPTIONAL",
+		"pause": "Pause",
+		"paused": "Paused"
+	},
+	"ccategory": {
+		"activate": "Activate",
+		"activated": "Activated",
+		"addItem": "Add Item",
+		"delete": "Delete",
+		"dlg": {
+			"msg": "Do you want to delete the category \"",
+			"title": "Atention"
+		},
+		"duplicate": "Duplicate",
+		"edit": "Edit",
+		"pause": "Pause",
+		"paused": "Paused"
+	},
+	"chooseMerchant": {
+		"create": "Create new store",
+		"title": "Choose a store:"
+	},
+	"chooseMerchantGroup": {
+		"createNew": "Create New",
+		"loadingfromtoken": "Loading from token...",
+		"title": "Choose a Brand:"
+	},
+	"confirmDialog": {
+		"cancel": "Cancel",
+		"ok": "OK"
+	},
+	"help": {
+		"accessthe": "Access the",
+		"howTo1": "This app is used to manage the ODP-Store. Here you can receive your orders, keep your product catalog up to date and publish your 'Customer Order App'.",
+		"howTo2": "Each of these features can be accessed through the side menu in the left corner.",
+		"howToSteps": "Get started in 3 steps:",
+		"howToUseTitle": "How to use this app",
+		"step1end": "option on the side menu and register your product catalog with images, prices and options.",
+		"step2end": "to publish your customer order application. Choose 'generate and publish'.",
+		"step3": "Share your newly generated customer ordering app link to your customers, point your domain to it and receive their orders in the",
+		"step3end": "option in the side menu.",
+		"thentogo": "Then go to",
+		"title": "Welcome to Open Delivery Platform",
+		"warningMsg": "This software still in development, may have bugs or errors, may be feature incomplete, and may be subject\n            to material change.\n            Please use it at your own risk.",
+		"warningReport": "Please report any bugs or issues to our github repository.",
+		"warningTitle": "Warning"
+	},
+	"itemDetails": {
+		"category": "Category",
+		"chooseImage": "Choose image",
+		"description": "Description",
+		"descriptionImg": "Appears in the listing and in the dish detail.",
+		"descriptionPlaceholder": "vegetables, salad and a carbohydrate of your choice",
+		"format": "Format:",
+		"itemImage": "Item image",
+		"mandatory": "mandatory",
+		"maxWeight": "Maximum Weight:",
+		"minResolution": "Minimum Resolution:",
+		"name": "Product Name",
+		"posCode": "POS Code"
+	},
+	"itemEditor": {
+		"cancel": "Cancel",
+		"complementGroups": "Complement groups that make up this item",
+		"continue": "Continue",
+		"copyfrom": "Copy from another item",
+		"createAddon": "Create add-on group",
+		"newItem": "New Item",
+		"nocomplement": "No, this item has no complement",
+		"save": "Save",
+		"selectOption": "Select an option",
+		"tab": {
+			"Availability": "Availability",
+			"Complement": "Complement",
+			"Details": "Details",
+			"Price": "Price"
+		},
+		"yescomplement": "Yes, this item has complement"
+	},
+	"itemPrice": {
+		"applyDiscount": "Apply Discount",
+		"currentPrice": "Current price",
+		"discountPercent": "Discount in %",
+		"mandatory": "mandatory",
+		"newPrice": "New Price",
+		"price": "Price",
+		"removeDiscount": "Remove discount"
+	},
+	"leftBarMenu": {
+		"title": {
+			"catalogs": "Catalogs",
+			"help": "Help",
+			"logout": "Logout",
+			"orders": "Orders",
+			"publish": "Publish",
+			"settings": "Settings"
+		}
+	},
+	"optionEditor": {
+		"activate": "Activate",
+		"activated": "Activated",
+		"addon": "Add-on name",
+		"description": "Description",
+		"descriptionPlaceholder": "Description",
+		"dlg": {
+			"msg": "Do you want to delete the category \"",
+			"title": "Atention"
+		},
+		"mandatory": "mandatory",
+		"pause": "Pause",
+		"paused": "Paused",
+		"placeholder": "$ 0,00",
+		"poscode": "Pos code",
+		"price": "Price",
+		"salestatus": "Sale status"
+	},
+	"optionGroupList": {
+		"deleteComplement": "Delete complement",
+		"duplicateComplement": "Duplicate complement",
+		"edit": "Edit",
+		"mandatoryu": "MANDATORY",
+		"option": "option",
+		"optional": "OPTIONAL",
+		"options": "options"
+	},
+	"optionGroupProductEditor": {
+		"aMandatory": "Mandatory",
+		"addaddon": "Add add-on",
+		"cancel": "Cancel",
+		"complementsHeading": "Items produced by your store, such as lunchboxes, cakes and snacks.",
+		"indicate": "Indicate whether this category is required to order the dish",
+		"indicateHowMany": "Indicate how many items can be selected",
+		"mandatory": "mandatory",
+		"maximum": "Maximum",
+		"minimum": "Minimum",
+		"name": "Complement group name",
+		"needadd": "Customer must select 1 or more items to add order to cart",
+		"newname": "New Complement group name",
+		"next": "Next",
+		"optional": "Optional",
+		"optionalMsg": "The customer may or may not select the items",
+		"prepared": "Prepared",
+		"quantity": "Quantity",
+		"tab":{
+			"Details":"Details",
+			"Complements":"Complements"
+		}
+	},
+	"orderDetail": {
+		"deliveryFee": "Delivery fee",
+		"estimatedDelivery": "Estimated delivery time:",
+		"firstOrder": "First Order in your store!",
+		"getintouch": "Get in touch",
+		"ordersInYourStore": "orders in your store!",
+		"placedAt": "placed at",
+		"prderSubtitle": "Order",
+		"takeoutmsg": "The Customer will pick up at the store. It is not necessary to send this order.",
+		"total": "Total order value",
+		"zipcode": "Zip code"
+	},
+	"orderStatus": {
+		"buttonAccept": "Accept",
+		"buttonDeny": "Deny",
+		"customerArrived": "The customer arrived, and is waiting in :",
+		"customerRequestCancellation": "Customer request cancellation !",
+		"driverStatus": {
+			"accepted the request": "accepted the request",
+			"arrived at destination ": "arrived at destination",
+			"arrived at store": "arrived at store",
+			"collected order": "collected order",
+			"going to store": "going to store"
+		},
+		"instructionLabels": {
+			"Confirm order": "Confirm order",
+			"Deliver until": "Deliver until"
+		},
+		"takeaway": "Take away",
+		"todeliver": "To deliver"
+	},
+	"orders": {
+		"filters": "Filters",
+		"filtersValues": {
+			"On Delivery": "On Delivery",
+			"Pending": "Pending"
+		},
+		"now": "Now",
+		"scheduled": "Scheduled",
+		"search": "Order search",
+		"statusTextValues": {
+			"Canceled": "Canceled",
+			"Concluded": "Concluded",
+			"Dispatched": "Dispatched",
+			"In Preparation": "In Preparation",
+			"Order with ocurrences": "Order with ocurrences",
+			"Pending": "Pending",
+			"Ready To Pickup": "Ready To Pickup"
+		}
+	},
+	"pageCategory": {
+		"add": "Add Category",
+		"addItem": "Add Item",
+		"allcategories": "All Categories",
+		"categories": "Categories",
+		"integration": "Integration",
+		"reorder": "Reorder"
+	},
+	"pizzaSizeEditor": {
+		"activate": "Activate",
+		"activated": "Activated",
+		"codpdv": "Code PDV",
+		"indicate": "Indicate here which sizes your pizzas are produced, how many pieces are cut and even how many flavors your restaurant assembles each size:",
+		"name": "Name",
+		"newsize": "New Size",
+		"pause": "Pause",
+		"paused": "Paused",
+		"pieces": "Pieces",
+		"qtyFlavors": "Qty. flavors",
+		"qtyPieces": "Qty. pieces",
+		"salesum": "Sale summary and status",
+		"sizes": "Sizes"
+	},
+	"publish": {
+		"alreadyupdated": "Your NFT token is already updated",
+		"appname": "App Name",
+		"available": "name available",
+		"chooseIpfsGateway": "Choose an Ipfs Gateway",
+		"customgatewayendpoint": "IPFS HTTP Gateway Api Endpoint:",
+		"genbefore": "Please generate the 'ODP-Customer Order App' before proceeding",
+		"gencustomapp": "Generate ODP-Customer Order App with custom manifest on IPFS",
+		"generateandpublish": "Generate and Publish",
+		"genhashdata": "Generate ODP-Store HashData on IPFS",
+		"lastknown": "Last known publications",
+		"message": "Please check the desired publishing options below and click 'Generate and Publish'",
+		"mintnft": "Mint NFT",
+		"mintorupdatenft": "Mint or Update your NFT",
+		"nft": {
+			"storename": "ODP STORE NAME:",
+			"unavailable": "name unavailable",
+			"youowner": "you are the owner"
+		},
+		"notfound": "Not found",
+		"pleaseconnect": "connect Metamask to PolygonNetwork.",
+		"posthashdata": "Post new hashdata to OrbitDB HashData Channel",
+		"pubipns": "Publish ODP-Customer Order App new CID to IPNS (fixed address)",
+		"publicStoreName": "Public Store Name:",
+		"publication": "Publication",
+		"publicationsResults": "Publication results",
+		"result": {
+			"customerAppLink": "ODP Customer Order App Link:",
+			"hashdatalink": "ODP Store HashData Link:",
+			"ipnslink": "ODP Customer Order APP IPNS Link:"
+		},
+		"seeonopensea": "This store already has an owner. Please choose another name, or trade this store on OpenSea.io",
+		"shortname": "Short Name",
+		"show less options": "show less options",
+		"show more options": "show more options",
+		"title": "Publish the Order App",
+		"updateIcon": "icon update",
+		"updatenft": "Update NFT",
+		"wrongnet": "Wrong network. Please, "
+	},
+	"splash": {
+		"title": "Loading ODP Manager App..."
+	},
+	"system": {
+		"logout": "Confirm Logout",
+		"msg": "Are you sure you want to log out?"
+	},
+	"wizardMerchant": {
+		"customEndpoint": "Custom endpoint:",
+		"email": "E-Mail",
+		"emailPlaceholder": "Ex. your@email.com ",
+		"name": "Name",
+		"orderschannel": "Orders Channel",
+		"phone": "Phone Number",
+		"phoneMask": "Ex. +9 (99) 999-999-999",
+		"register": "Register store",
+		"street": "Street address",
+		"title": "Let's register your store"
+	},
+	"wizardNewMerchantGroup": {
+		"appname": "App Name",
+		"name": "Name",
+		"namePlaceholder": "Enter your business name",
+		"register": "Register brand",
+		"shortname": "App Short Name",
+		"title": "Let's register your brand"
+	}
+}

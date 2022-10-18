@@ -1,0 +1,83 @@
+.head {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.tab:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.tabs {
+}
+.tab {
+    padding-right: 20px;
+}
+.name-group {
+    padding: 30px 0px;
+}
+.currentTab-underline {
+    text-decoration: underline;
+}
+.category-name > span {
+    font-style: italic;
+}
+.name {
+    padding: 10px 10px 10px 0px;
+}
+.name > input {
+    width: 100%;
+}
+.footer{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.cancel{
+    margin-right: 15px;
+}
+.mandatory{
+    padding-bottom: 5px;
+}
+.radio-group{
+    padding-top:20px;
+    padding-bottom:50px;
+}
+.optinal{
+    padding-bottom: 20px;
+}
+.quantity-title{
+    padding-top: 20px;
+}
+.change-quantity{
+    padding:8px 10px;
+    border-radius: 5px;
+}
+.quantity{
+    padding: 2px 15px;
+}
+.instruction-quantity{
+    padding: 10px 0px;
+}
+.quantity-label{
+padding-bottom: 10px;
+}
+.minimum{
+    padding-right: 40px;
+}
+.add-complement{
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.prepared{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+}
+.bottom-icon{
+    height: 265px;
+}
+.title{
+    padding-bottom: 10px;
+}
+.buttons-actions{
+    padding-bottom: 100px;
+}

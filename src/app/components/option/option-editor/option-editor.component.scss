@@ -1,0 +1,67 @@
+.item{
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 5px;
+}
+.img {
+    position: relative;
+    display: flex;
+    flex: 1 1;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 110px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #fff;
+    background-image: url(/ODP-ManagerApp/src/assets/svgs/icon-food.daed62b4.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border: 2px dashed #a6a6a5;
+}
+.title{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.title-add-name{
+    padding-bottom: 10px;
+}
+.price{
+    text-align: left;
+}
+.name-complement{
+    padding-left: 20px;
+}
+input{
+    width: 90%;
+}
+textarea{
+    width: 90%;
+}
+.mat-icon-menu{
+    padding-top: 30px;
+}
+.img-remove{
+    padding-top: 35px;
+}
+.btn{
+    font-size: 12px;
+}
+.btn-pause{
+    border-radius: 5px 0px 0px 5px;
+    @media (max-width: 917px) {
+        border-radius: 5px 5px 0px 0px;
+        width: 85px;
+    }
+}
+.btn-activate{
+    border-radius: 0px 5px 5px 0px;
+    @media (max-width: 917px) {
+        border-radius: 0px 0px 5px 5px;
+        width: 85px;
+    }
+}
+.btn-pause-matte{
+    opacity: 0.5;
+}

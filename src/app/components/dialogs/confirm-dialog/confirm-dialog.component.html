@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>
+    {{title}}
+  </h1>
+  
+  <div mat-dialog-content>
+    <p>{{message}}</p>
+  </div>
+  
+  <div mat-dialog-actions>
+      <div fxFlex>
+
+      </div>
+    <button *ngIf="data.showCancel" mat-button (click)="onDismiss()" i18n="@@confirmDialog.cancel">
+        {{ 'confirmDialog.cancel' | translate }}
+    </button>
+    <button mat-raised-button color="primary" (click)="onConfirm()" i18n="@@confirmDialog.ok">{{ 'confirmDialog.ok' | translate }}</button>
+  </div>

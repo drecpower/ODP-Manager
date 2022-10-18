@@ -1,0 +1,32 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFill >
+    <div class="wizard-logo-sticker" [class.mat-elevation-z10]="true">
+        <img class="icoapp" *ngIf="!uploadedIcon" src="assets/imgs/logo.png" >
+        <img class="icoapp" *ngIf="uploadedIcon" [src]="uploadedIcon|async">
+    </div>
+    <div class="wizard-card" [class.mat-elevation-z6]="true">
+        <h1>{{ 'wizardNewMerchantGroup.title' | translate }}</h1>
+        <div fxLayout="row wrap">
+            <mat-form-field fxFlex="100" appearance="fill">
+                <mat-label>{{ 'wizardNewMerchantGroup.name' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'wizardNewMerchantGroup.namePlaceholder' | translate }}" [(ngModel)]="formMerchantGroup.name" >
+            </mat-form-field>
+            <mat-form-field fxFlex="100" appearance="fill">
+                <mat-label>{{ 'wizardNewMerchantGroup.appname' | translate }}</mat-label>
+                <input matInput placeholder="Ex. Pet Toys Delivery App" [(ngModel)]="formMerchantGroup.appName">
+            </mat-form-field>
+            <mat-form-field fxFlex="100" appearance="fill">
+                <mat-label>{{ 'wizardNewMerchantGroup.shortname' | translate }}</mat-label>
+                <input matInput placeholder="Ex. PetToys" [(ngModel)]="formMerchantGroup.appShortName">
+            </mat-form-field>
+            <app-mff-upload-file fxFlex="100" label="App Icon" (onComplete)="onUploadIcon($event)"></app-mff-upload-file>
+            
+            <div fxLayout="row" fxFlex="100" fxLayoutAlign="end center">
+                <button mat-raised-button color="primary" (click)="register()">
+                    {{ 'wizardNewMerchantGroup.register' | translate }}
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+</div>

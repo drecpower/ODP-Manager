@@ -1,0 +1,74 @@
+<div class="content" fxLayout="column">
+    <div fxLayout="row" fxLayout.xs="column">
+        <div class="" fxFlex="60" fxFlex.xs="100" fxLayout="column">
+            <div class="category" fxLayout="column">
+                <div class="body1-semibold title-category">{{ 'itemDetails.category' | translate }} <span class="grey-color">({{ 'itemDetails.mandatory' | translate }})</span></div>
+                <div>
+                    <mat-select [(ngModel)]="item.categoryId" placeholder="">
+                        <mat-option value="">Select</mat-option>
+                        <mat-option *ngFor="let cat of catalogDataSvc.categoriesDb" [value]="cat.id">{{cat.name}}
+                        </mat-option>
+                    </mat-select>
+                </div>
+            </div>
+            <div class="name" fxLayout="column">
+                <div class="body1-semibold product-name">{{ 'itemDetails.name' | translate }} <span class="grey-color">({{ 'itemDetails.mandatory' | translate }})</span></div>
+                <div>
+                    <input class="light-grey-border-color" placeholder="Chicken lunch box"
+                        [(ngModel)]="item.productIdNavigation.name">
+                </div>
+            </div>
+            <div class="description">
+                <div class="body1-semibold description-textarea">{{ 'itemDetails.description' | translate }}</div>
+                <div>
+                    <textarea class="light-grey-border-color" matInput
+                        [(ngModel)]="item.productIdNavigation.description"
+                        placeholder="{{ 'itemDetails.descriptionPlaceholder' | translate }}"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="" fxFlex="40" fxFlex.xs="100" fxLayout="column">
+            <div class="img-item">
+                <div class="body1-semibold item-image">{{ 'itemDetails.itemImage' | translate }}</div>
+                <div class="body4 description-img">{{ 'itemDetails.descriptionImg' | translate }}</div>
+                <div *ngIf="!imgItem" class="img" fxLayout="column">
+                    <img class="img-image" src="../../../../assets/svgs/icon-food.daed62b4.svg" />
+                    <button class="btn primary-border-color primary-color" (click)="changeImg()" mat-button>
+                        <mat-icon class="primary-color">add</mat-icon>
+                        {{ 'itemDetails.chooseImage' | translate }}
+                    </button>
+                </div>
+                <div *ngIf="imgItem" class="img" fxLayout="column">
+                    <img class="img filled" [src]="imgItem|async" (click)="changeImg()">
+                </div>
+                <div class="detail-img">
+                    <div class="body4">{{ 'itemDetails.format' | translate }} <b>JPEG, JPG, PNG e HEIC</b></div>
+                    <div class="body4">{{ 'itemDetails.maxWeight' | translate }} <b>20 MB</b></div>
+                    <div class="body4">{{ 'itemDetails.minResolution' | translate }} <b>300x275</b></div>
+                </div>
+            </div>
+            <div class="external-code">
+                <div>{{ 'itemDetails.posCode' | translate }}</div>
+                <div>
+                    <input class="light-grey-border-color" [(ngModel)]="item.productIdNavigation.externalCode" placeholder="000">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="extra-light-grey-background-color" fxFlex="100" fxFlex.xs="100" fxLayout="column">
+        <div>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div> -->
+</div>

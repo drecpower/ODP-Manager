@@ -1,0 +1,67 @@
+
+.content {
+    padding:25px;
+}
+
+.incontent {
+    padding-left: 25px;
+    padding-top:25px;
+}
+
+.buttons{
+    padding-top: 15px;
+}
+
+.wrapanywhere {
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+}
+
+.inner-rounded {
+    background-color: rgba(0,0,0,0.1);
+    margin-top: 25px;
+    padding: 25px;
+    padding-top: 0;
+    border-radius: 25px;
+}
+
+.reorder {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+}
+
+.hintwarn{
+    color: #ff0000;
+}
+
+.hintnice{
+    color: green;
+}
+
+.appicon {
+    max-height: 128px;
+    max-width: 128px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    border:2px solid black
+}
+
+.hyperlink {
+    color: darkblue;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.bottomstick{
+    margin-top:0;
+    padding-top:0;
+    padding-bottom: 0;
+    padding-right: 0;
+}
+
+.invisible {
+    display: none;
+}

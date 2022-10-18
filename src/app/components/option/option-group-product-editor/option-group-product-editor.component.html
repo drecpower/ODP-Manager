@@ -1,0 +1,114 @@
+<div class="content" fxLayout="column">
+    <div class="head heading1">
+        <div fxFlex="90" fxLayoutAlign="start center">
+            <span *ngIf="!ogp.optionGroupIdNavigation.name">{{ 'optionGroupProductEditor.newname' | translate }}</span>
+            <span *ngIf="ogp.optionGroupIdNavigation.name">{{ogp.optionGroupIdNavigation.name}}</span>
+        </div>
+        <div fxFlex="10" fxLayoutAlign="end center">
+            <mat-icon class="primary-color">close</mat-icon>
+        </div>
+    </div>
+    <div class="tabs" fxLayout="row">
+        <div class="tab heading2-regular" *ngFor="let t of listTabs" (click)="setTab(t)"
+            [ngClass]="{'primary-color': t==currentTab, 'currentTab-underline': t==currentTab, 'grey-color': t!=currentTab}">
+            {{'optionGroupProductEditor.tab.'+t|translate}}
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div *ngIf="currentTab=='Details'">
+        <div class="name-group">
+            <div class="heading4 category-name">{{ 'optionGroupProductEditor.name' | translate }}
+                <span class="grey-color">({{ 'optionGroupProductEditor.mandatory' | translate }})</span>
+            </div>
+            <div class="name">
+                <input placeholder="Name" [(ngModel)]="ogp.optionGroupIdNavigation.name">
+            </div>
+        </div>
+        <div>
+            <div class="heading3-regular mandatory">{{ 'optionGroupProductEditor.aMandatory' | translate }}</div>
+            <div class="body1">{{ 'optionGroupProductEditor.indicate' | translate }} </div>
+            <div class="radio-group">
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="mandatory" fxLayout="column">
+                    <mat-radio-button [value]="false" class="optinal">
+                        <div fxLayout="column">
+                            <div>{{ 'optionGroupProductEditor.optional' | translate }}</div>
+                            <div class="body1 grey-color">{{ 'optionGroupProductEditor.optionalMsg' | translate }}</div>
+                        </div>
+                    </mat-radio-button>
+                    <mat-radio-button [value]="true">
+                        <div fxLayout="column">
+                            <div>{{ 'optionGroupProductEditor.aMandatory' | translate }}</div>
+                            <div class="body1 grey-color">{{ 'optionGroupProductEditor.needadd' | translate }}
+                            </div>
+                        </div>
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        <div class="quantity-title heading3">{{ 'optionGroupProductEditor.quantity' | translate }}</div>
+        <div class="body1 instruction-quantity">{{ 'optionGroupProductEditor.indicateHowMany' | translate }}</div>
+        <div fxLayout="row">
+            <div class="column minimum">
+                <div class="heading3 quantity-label">{{ 'optionGroupProductEditor.minimum' | translate }}</div>
+                <div class="change-quantity light-grey-border-color" fxLayout="row">
+                    <div>
+                        <mat-icon class="grey-color">remove</mat-icon>
+                    </div>
+                    <div class="quantity" [ngClass]="{
+                    'grey-color':ogp.min==0,
+                    'black-color': ogp.min>0
+                  }">{{ogp.min}}</div>
+                    <div>
+                        <mat-icon class="grey-color">add</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="heading3 quantity-label">{{ 'optionGroupProductEditor.maximum' | translate }}</div>
+                <div class="change-quantity light-grey-border-color" fxLayout="row">
+                    <div (click)="ogp.max>1?ogp.max=ogp.max-1:ogp.max=ogp.max">
+                        <mat-icon class="grey-color" [ngClass]="{
+                        'grey-color':ogp.max==1,
+                        'primary-color': ogp.max>1
+                      }">remove</mat-icon>
+                    </div>
+                    <div class="quantity">{{ogp.max}}</div>
+                    <div (click)="ogp.max=ogp.max+1">
+                        <mat-icon class="primary-color">add</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="currentTab=='Complements'">
+        <app-option-editor [option]="option" *ngFor="let option of ogp.optionGroupIdNavigation.option" (onDeletedOption)="onDeletedOption(option)">
+        </app-option-editor>
+        <div fxLayout="column" class="buttons-actions">
+            <div class="add-complement heading2-regular">
+                {{ 'optionGroupProductEditor.addaddon' | translate }}
+            </div>
+            <div class="pointer prepared light-grey-border-color" (click)="addItemComplement()">
+                <div fxFlex="20" fxLayoutAlign="center center">
+                    <mat-icon class="primary-color">add</mat-icon>
+                </div>
+                <div fxFlex="80" fxLayout="column"> 
+                    <div class="title heading3">
+                        {{ 'optionGroupProductEditor.prepared' | translate }}
+                    </div>
+                    <div>
+                        {{ 'optionGroupProductEditor.complementsHeading' | translate }}
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div fxFlex="100" fxLayout="row">
+            <button mat-button class="button primary-border-color primary-color cancel"
+                (click)="dialogRef.close()">{{ 'optionGroupProductEditor.cancel' | translate }}</button>
+            <button mat-raised-button class="button primary-background-color white-80-color"
+                [disabled]="ogp.optionGroupIdNavigation.name==''" (click)="continue()">{{ 'optionGroupProductEditor.next' | translate }}</button>
+        </div>
+    </div>
+</div>

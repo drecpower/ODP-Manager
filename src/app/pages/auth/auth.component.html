@@ -1,0 +1,63 @@
+<div fxLayout="row wrap" fxLayoutAlign="center center" style="padding-top: 100px;">
+
+    <div [class.mat-elevation-z10]="true" class="mat-white-bg loginform" fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="center center" class="loginboxtop">
+            <div class="logo">
+                <img class="logo-icon" src="assets/svgs/logo.svg" style="width:150px;">
+            </div>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" style="padding: 10px" class="titledeg" *ngIf="!systemSvc.isStaticAppOnly">
+            <span style="font-size: 24px" i18n="@@auth.title" >
+                {{ 'auth.title' | translate }}
+            </span>
+        </div>
+        <div fxLayout="column" class="loginboxfields">
+            <mat-form-field appearance="outline" [ngStyle]="{display: systemSvc.isStaticAppOnly ? 'none':'block'}">
+                <mat-label i18n="@@auth.username">{{ 'auth.username' | translate }}</mat-label>
+                <input matInput [(ngModel)]="_usr" (ngModelChange)="_msg=''">
+                <mat-icon matSuffix>perm_identity</mat-icon>
+            </mat-form-field>
+            <mat-form-field appearance="outline" [ngStyle]="{display: systemSvc.isStaticAppOnly ? 'none':'block'}">
+                <mat-label i18n="@@auth.password">{{ 'auth.pasword' | translate }}</mat-label>
+                <input matInput type="password" [(ngModel)]="_pwd" (ngModelChange)="_msg=''"
+                    (keydown)="keydownListener($event)">
+                <mat-icon matSuffix>vpn_key</mat-icon>
+            </mat-form-field>
+
+            <span class="alertlogin">
+                {{_msg}}
+            </span>
+    
+            <button mat-raised-button [color]="'primary'" (click)="doLogin()" *ngIf="!systemSvc.isStaticAppOnly" i18n="@@auth.enter">
+                {{ 'auth.enter' | translate }}
+            </button>
+
+            <button mat-raised-button [color]="'primary'" (click)="doLoginWithWallet()" *ngIf="systemSvc.isStaticAppOnly" i18n="@@auth.loginwithwallet">
+                {{ 'auth.loginwithwallet' | translate }}
+            </button>
+
+            <div class="ordiv" fxLayout="column" fxLayoutAlign="center center" i18n="@@auth.or">
+                {{ 'auth.or' | translate }}
+            </div>
+            <div class="ordiv" fxLayout="column" fxLayoutAlign="center center" *ngIf="systemSvc.isStaticAppOnly" i18n="@@auth.ordownload_server">
+                <small>
+                    {{ 'auth.ordownload_server' | translate }}
+                </small>
+                
+            </div>
+            <div class="ordiv" fxLayout="column" fxLayoutAlign="center center" *ngIf="systemSvc.version" >
+                <small>
+                    <b>Ver.:</b>{{systemSvc.version}}
+                </small>
+                
+            </div>
+
+            <button mat-raised-button *ngIf="!systemSvc.isStaticAppOnly" i18n="@@auth.create">
+                {{ 'auth.create' | translate }}
+            </button>
+
+        </div>
+
+
+    </div>
+</div>

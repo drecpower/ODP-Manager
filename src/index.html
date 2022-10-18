@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ODP Manager App</title>
+  <!-- <base href="/"> -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="libs/uuidv4.js"></script>
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+
+  <div id="loading_application" style="display:none;font-size:24px;position: fixed;top:0;left:0;width:100vw;height:100vh;z-index: 9999;text-align: center;vertical-align: middle;line-height: 100vh;">
+    First time loading...
+    <script>
+      if (!localStorage.getItem("app_loaded")){
+        document.getElementById("loading_application").style.display="block";
+      }
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<div class="item grey-border-color">
+    <div fxFlex="10" fxLayout="column" fxLayoutAlign="start center">
+        <mat-icon class="mat-icon-menu grey-color">menu</mat-icon>
+    </div>
+    <div fxFlex="30" fxLayout="Column"> 
+        <div>
+            <div class="img" fxLayoutAlign="center center">
+                <!-- <img /> -->
+                <mat-icon class="primary-color">local_see</mat-icon>
+            </div>
+        </div> 
+        <div>
+            <div class="heading4 title">{{ 'optionEditor.poscode' | translate }}</div>
+            <div>
+                <input placeholder="000">
+            </div>
+        </div>
+        <div>
+            <div class="heading4 title">{{ 'optionEditor.salestatus' | translate }}</div>
+            <div>
+                <button (click)="alterStatus('UNAVAILABLE')" *ngIf="option.status == 'AVAILABLE'"
+                    class="button-status btn btn-pause btn-pause-matte primary-border-color body5-semibold primary-color"
+                    mat-button>{{ 'optionEditor.pause' | translate }}</button>
+                <button *ngIf="option.status == 'AVAILABLE'"
+                    class="button-status btn btn-activate white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                    mat-raised-button>{{ 'optionEditor.activated' | translate }}</button>
+                <button *ngIf="option.status == 'UNAVAILABLE'"
+                    class="button-status btn btn-pause white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                    mat-raised-button>{{ 'optionEditor.paused' | translate }}</button>
+                <button (click)="alterStatus('AVAILABLE')" *ngIf="option.status == 'UNAVAILABLE'"
+                    class="button-status btn btn-activate btn-pause-matte primary-border-color primary-border-color body5-semibold primary-color"
+                    mat-button>{{ 'optionEditor.activate' | translate }}</button>
+            </div>
+        </div>
+    </div>
+    <div fxFlex="50" fxLayout="Column" class="name-complement">
+        <div>
+            <div class="title-add-name">
+                <span class="heading4">{{ 'optionEditor.addon' | translate }} </span><span class="grey-color"> ({{ 'optionEditor.mandatory' | translate }})</span>
+            </div>
+            <div>
+                <input [(ngModel)]="option.productIdNavigation.name" placeholder="Example: French fries">
+            </div>
+        </div>
+        <div>
+            <div class="heading4 title">{{ 'optionEditor.description' | translate }}</div>
+            <div>
+                <!-- [(ngModel)]="" -->
+                <textarea [(ngModel)]="option.productIdNavigation.description" class="light-grey-border-color" matInput
+                    placeholder="{{ 'optionEditor.descriptionPlaceholder' | translate }}"></textarea>
+            </div>
+        </div>
+        <div>
+            <div class="title">
+                <span class="heading4">{{ 'optionEditor.price' | translate }} </span> <span class="grey-color"> ({{ 'optionEditor.mandatory' | translate }})</span>
+            </div>
+            <div>
+                <input [(ngModel)]="option.price" class="price" placeholder="{{ 'optionEditor.placeholder' | translate }}">
+            </div>
+        </div>
+    </div>
+    <div fxFlex="10" fxLayout="column" fxLayoutAlign="start center" (click)="deleteOption()">
+        <img class="img-remove pointer" src="../../../../assets/svgs/trash-icon.0d73c2a9.svg" />
+    </div>
+</div>

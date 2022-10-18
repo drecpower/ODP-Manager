@@ -1,0 +1,163 @@
+<div class="content" fxLayout="column">
+    <div fxLayout.lt-md="column" fxLayout.gt-sm="row">
+        <div fxFlex.gt-sm="50" fxFlex.lt-md="100">
+            <div fxLayout="row wrap" fxFlex.gt-sm="70" fxFlex.lt-md="90">
+                <div fxFlex="30">
+                    <div class="img-item">
+                        <img class="img" *ngIf="!uploadedImg" src="../../../assets/svgs/empty-image.svg" (click)="changeImg()">
+                        <img class="img filled" *ngIf="uploadedImg" [src]="uploadedImg|async" (click)="changeImg()">
+                        <!-- <app-mff-upload-file id="mff-upload-file" fxFlex="100" label="App Icon" (onComplete)="onUploadImg($event)"></app-mff-upload-file> -->
+                    </div>
+                </div>
+                <div fxFlex="5"></div>
+                <div fxFlex.lt-md="65" class="text-item" fxLayout="column" (click)="editItem()" fxLayoutAlign="start start">
+                    <div [matTooltip]="item.id" matTooltipPosition="above" class="heading4">
+                        {{item.productIdNavigation.name}}</div>
+                    <div>{{item.productIdNavigation.description}}</div>
+                </div>
+            </div>
+            <div fxFlex="10" fxFlex.lt-md="10" fxLayoutAlign="end start" fxHide.gt-sm>
+                <div class="toggle"
+                    *ngIf="item.productIdNavigation.optionGroupProduct && item.productIdNavigation.optionGroupProduct.length>0">
+                    <mat-icon class="primary-color" (click)="toggleShowOptions()" *ngIf="!showOptions">
+                        keyboard_arrow_down</mat-icon>
+                    <mat-icon class="primary-color" (click)="toggleShowOptions()" *ngIf="showOptions">
+                        keyboard_arrow_up
+                    </mat-icon>
+                </div>
+                <div>
+                    <mat-spinner *ngIf="loadDelete" class="spinner" [diameter]="30"></mat-spinner>
+                    <mat-icon *ngIf="!loadDelete" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="editItem()">{{ 'categoryListItem.edit' | translate }}</button>
+                        <button mat-menu-item (click)="deleteItem()">{{ 'categoryListItem.delete' | translate }}</button>
+                        <button mat-menu-item>{{ 'categoryListItem.duplicate' | translate }}</button>
+                    </mat-menu>
+                </div>
+
+            </div>
+        </div>
+        <div fxLayout="row" fxFlex.gt-sm="50" fxFlex.lt-md="100" class="price-status">
+            <div fxFlex.lt-md="50" fxFlex.gt-sm="40" fxLayoutAlign="start start">
+                <div *ngIf="!(changePriceSvc.objChangingPrice && changePriceSvc.objChangingPrice.type == 'item' && changePriceSvc.objChangingPrice.id == item.id)"
+                    (click)="changePriceSvc.changeItemPrice(item)" class="price light-grey-border-color ">
+                    <span *ngIf="!changePriceSvc.itemsToChangePrice[item.id]">{{item.price}}</span>
+                    <span
+                        *ngIf="changePriceSvc.itemsToChangePrice[item.id]">{{changePriceSvc.itemsToChangePrice[item.id]}}</span>
+                </div>
+                <input disabled="loadDelete"
+                    *ngIf="changePriceSvc.objChangingPrice && changePriceSvc.objChangingPrice.type == 'item' && changePriceSvc.objChangingPrice.id == item.id"
+                    class="white-80-background-color light-grey-border-color input-price"
+                    (change)="changePriceSvc.changedPrice()" [(ngModel)]="changePriceSvc.changingPrice"
+                    (blur)="changePriceSvc.blurItem(item.id)" type="text">
+                <!-- <mat-icon>loyalty</mat-icon> -->
+            </div>
+            <div class="btns" fxFlex.lt-md="50" fxFlex.gt-sm="50" fxLayoutAlign="end start">
+                <div *ngIf="!loadDelete">
+                    <button (click)="alterStatusItem('UNAVAILABLE')" *ngIf="item.status == 'AVAILABLE'"
+                        class="button-status btn btn-pause btn-pause-matte primary-border-color body5-semibold primary-color"
+                        mat-button>{{ 'categoryListItem.pause' | translate }}</button>
+                    <button *ngIf="item.status == 'AVAILABLE'"
+                        class="button-status btn btn-activate white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                        mat-raised-button>{{ 'categoryListItem.activated' | translate }}</button>
+                    <button *ngIf="item.status == 'UNAVAILABLE'"
+                        class="button-status btn btn-pause white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                        mat-raised-button>{{ 'categoryListItem.paused' | translate }}</button>
+                    <button (click)="alterStatusItem('AVAILABLE')" *ngIf="item.status == 'UNAVAILABLE'"
+                        class="button-status btn btn-activate btn-pause-matte primary-border-color primary-border-color body5-semibold primary-color"
+                        mat-button>{{ 'categoryListItem.activate' | translate }}</button>
+                </div>
+            </div>
+            <div fxFlex.gt-sm="10" fxLayoutAlign="end start" fxHide.lt-md>
+                <div class="toggle"
+                    *ngIf="item.productIdNavigation.optionGroupProduct && item.productIdNavigation.optionGroupProduct.length>0 && !loadDelete">
+                    <mat-icon class="primary-color" (click)="toggleShowOptions()" *ngIf="!showOptions">
+                        keyboard_arrow_down</mat-icon>
+                    <mat-icon class="primary-color" (click)="toggleShowOptions()" *ngIf="showOptions">
+                        keyboard_arrow_up
+                    </mat-icon>
+                </div>
+                <div>
+                    <mat-spinner *ngIf="loadDelete" class="spinner" [diameter]="30"></mat-spinner>
+                    <mat-icon *ngIf="!loadDelete" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="editItem()">{{ 'categoryListItem.editbtn' | translate }}</button>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="showOptions">
+        <div fxLayout="column" fxFlex="100">
+            <div class="line" *ngFor="let ogp of item.productIdNavigation!.optionGroupProduct!">
+                <div fxLayout="row" class="ogp extra-light-grey-background-color">
+                    <div fxFlex="70" fxLayoutAlign="start center">
+                        <div fxFlex="70">
+                            <div fxFlex="20">
+                            </div>
+                            <div fxFlex="80" class="heading3-regular">
+                                {{ogp.optionGroupIdNavigation.name}}
+                            </div>
+                        </div>
+                        <div fxFlex="30" fxLayoutAlign="start start">
+                            <span class="body3-semibold dark-grey-background-color white-80-color mandatory"
+                                *ngIf="ogp.min>0">{{ 'categoryListItem.mandatory' | translate }}</span>
+                            <span class="light-grey-background-color black-color mandatory"
+                                *ngIf="ogp.min==0">{{ 'categoryListItem.optional' | translate }}</span>
+                        </div>
+                    </div>
+                    <div fxFlex="30" fxLayoutAlign="end center">
+                        <div fxFlex="100" fxLayoutAlign="end start">
+                            <div fxFlex="90" fxLayoutAlign="start start">
+                                <span>{{ 'categoryListItem.min' | translate }} {{ogp.min}} {{ 'categoryListItem.max' | translate }} {{ogp.max}}</span>
+                            </div>
+                            <div fxFlex="10" fxLayoutAlign="end start">
+                                <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sub-itens" *ngFor="let op of ogp.optionGroupIdNavigation.option" fxLayout.lt-md="column"
+                    fxLayout.gt-sm="row">
+                    <div fxFlex.lt-md="100" fxFlex.gt-sm="70" fxLayout.gt-sm="row">
+                        <div fxFlex.lt-md="50" fxFlex.gt-sm="70">
+                            <div fxFlex="20">
+                            </div>
+                            <div fxFlex="30" fxFlex.gt-sm="70" class="body1">
+                                {{op.productIdNavigation.name}}
+                            </div>
+                        </div>
+                        <div fxFlex.lt-md="50" fxFlex.gt-sm="30" fxLayoutAlign="start center">
+                            <div fxFlex="100">
+                                <input class="grey-border-color input-price" />
+                            </div>
+                        </div>
+                    </div>
+                    <div fxFlex.lt-md="100" fxFlex.gt-sm="30">
+                        <div fxFlex="100" fxLayoutAlign="start center" ngClass.lt-md="sub-item-input">
+                            <div fxFlex.lt-md="10">
+                            </div>
+                            <div fxFlex="90" fxFlex.lt-md="80">
+                                <button (click)="setStatusOption('UNAVAILABLE', op)" *ngIf="op.status == 'AVAILABLE'"
+                                    class="button-status btn btn-pause btn-pause-matte primary-border-color body5-semibold primary-color"
+                                    mat-button>{{ 'categoryListItem.pause' | translate }}</button>
+                                <button *ngIf="op.status == 'AVAILABLE'"
+                                    class="button-status btn btn-activate white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                                    mat-raised-button>{{ 'categoryListItem.activated' | translate }}</button>
+                                <button *ngIf="op.status == 'UNAVAILABLE'"
+                                    class="button-status btn btn-pause white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                                    mat-raised-button>{{ 'categoryListItem.paused' | translate }}</button>
+                                <button (click)="setStatusOption('AVAILABLE', op)" *ngIf="op.status == 'UNAVAILABLE'"
+                                    class="button-status btn btn-activate btn-pause-matte primary-border-color primary-border-color body5-semibold primary-color"
+                                    mat-button>{{ 'categoryListItem.activate' | translate }}</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr" fxHide.gt-sm>
+                        <hr class="light-grey-color" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<div class="content-spinner" *ngIf="load">
+    <div class="spinner">
+        <mat-spinner></mat-spinner>
+    </div>
+</div>
+<div class="content" *ngIf="!load">
+    <div class="heading2-regular">{{ 'pizzaSizeEditor.sizes' | translate }}</div>
+    <div>
+        <div class="body3 size-description">{{ 'pizzaSizeEditor.indicate' | translate }}</div>
+    </div>
+
+    <div fxLayout="column">
+        <div fxLayout="row">
+            <div class="body2 name" fxFlex="25">
+                <div fxFlex="80">
+                    {{ 'pizzaSizeEditor.name' | translate }}
+                </div>
+            </div>
+            <div class="body2" fxFlex="25">{{ 'pizzaSizeEditor.qtyPieces' | translate }}</div>
+            <div class="body2" fxFlex="25">{{ 'pizzaSizeEditor.qtyFlavors' | translate }}</div>
+            <div class="body2" fxFlex="25">{{ 'pizzaSizeEditor.codpdv' | translate }}</div>
+        </div>
+        <div class="line-size" fxLayout="row" *ngFor="let optionGroupProduct of optionGroupProducts">
+            <div class="body2" fxFlex="25">
+                <div fxFlex="80" *ngIf="optionGroupProduct.optionGroupIdNavigation">
+                    <input class="input-size" matInput placeholder="{{ 'pizzaSizeEditor.newsize' | translate }}"  [(ngModel)]="optionGroupProduct.optionGroupIdNavigation.name">
+                </div>
+            </div>
+            <div class="body2" fxFlex="25">
+                <div class="qtd-pieces" fxFlex="80">
+                    <div fxFlex="100">
+                        <input type="number" class="input-size" matInput placeholder="0" [(ngModel)]="optionGroupProduct.slices">
+                    </div>
+                    <div class="pieces">
+                        <div>{{ 'pizzaSizeEditor.pieces' | translate }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="body2" fxFlex="25">
+                <div class="flavors">
+                    <div class="body2" fxFlex="19" *ngFor="let i of [1,2,3,4]">
+                        <span [ngClass]="{'flavor-selected' : optionGroupProduct.acceptedFractions.split(',').indexOf(i+'')>=0, 
+                            'flavor' : optionGroupProduct.acceptedFractions.split(',').indexOf(i+'')<0}" (click)="changeQtyFlavors(optionGroupProduct, i.toString())">{{i}}</span>
+                    </div>
+                    <!-- <div class="body2" fxFlex="19">
+                        <span [ngClass]="{'flavor-selected' : optionGroupProduct.acceptedFractions.split(',').indexOf('1')>=0, 
+                            'flavor' : optionGroupProduct.acceptedFractions.split(',').indexOf('2')<0}" (click)="changeQtyFlavors(optionGroupProduct.acceptedFractions, 2)">2</span>
+                    </div>
+                    <div class="body2" fxFlex="19">
+                        <span [ngClass]="{'flavor-selected' : optionGroupProduct.acceptedFractions.split(',').indexOf('1')>=0, 
+                            'flavor' : optionGroupProduct.acceptedFractions.split(',').indexOf('3')<0}" (click)="changeQtyFlavors(optionGroupProduct.acceptedFractions, 3)">3</span>
+                    </div>
+                    <div class="body2" fxFlex="19">
+                        <span [ngClass]="{'flavor-selected' : optionGroupProduct.acceptedFractions.split(',').indexOf('1')>=0, 
+                            'flavor' : optionGroupProduct.acceptedFractions.split(',').indexOf('4')<0}" (click)="changeQtyFlavors(optionGroupProduct.acceptedFractions, 4)">4</span>
+                    </div> -->
+                </div>
+            </div>
+            <div class="body2" fxFlex="25">
+                <div fxFlex="80">
+                    <div fxFlex="80">
+                        <input class="input-size" matInput placeholder=""  [(ngModel)]="optionGroupProduct.externalCode">
+                    </div>
+                </div>
+                <div fxFlex="5">
+                    <mat-icon class="primary-color icon" (click)="deleteConfirm(optionGroupProduct)">close</mat-icon>
+                </div>
+            </div>
+        </div>
+        <div class="content-new-size" fxFlex="100" fxLayout="row">
+            <div fxFlex="100" class="primary-color" fxLayout="row" (click)="addSize()">
+                <div fxFlex="5" class="icon-add">
+                    <mat-icon class="primary-color">add</mat-icon>
+                </div>
+                <div class="new-size" fxFlex="95">
+                    {{'pizzaSizeEditor.newsize'|translate}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="heading2-regular sales-summary">{{ 'pizzaSizeEditor.salesum' | translate }}</div>
+
+    <div fxLayout="row wrap">
+        <div fxFlex="30" class="mat-elevation-z2 card-sales-summary" *ngFor="let optionGroupProduct of optionGroupProducts" fxLayout="column">
+            <div fxFlex="100">
+                <div fxFlex="100">
+                    <!-- <mat-icon class="primary-color icon" (click)="deleteSize()">close</mat-icon> -->
+                </div>
+            </div>
+            <div fxFlex="100">
+                <div fxFlex="100" class="img">
+                    <!-- <img src="https://cdn-icons-png.flaticon.com/512/1404/1404945.png" width="50px" /> -->
+                    <img *ngIf="optionGroupProduct.acceptedFractions.split(',').indexOf('1')>=0 
+                    && optionGroupProduct.acceptedFractions.split(',').indexOf('2')<0 
+                    && optionGroupProduct.acceptedFractions.split(',').indexOf('3')<0
+                    && optionGroupProduct.acceptedFractions.split(',').indexOf('4')<0" src="../../../assets/imgs/pizza-toppings-1.cb6dcd0b.svg" width="50px" />
+                    <img *ngIf="optionGroupProduct.acceptedFractions.split(',').indexOf('2')>=0
+                    && optionGroupProduct.acceptedFractions.split(',').indexOf('3')<0
+                    && optionGroupProduct.acceptedFractions.split(',').indexOf('4')<0" src="../../../assets/imgs/pizza-toppings-2.c7b86c10.svg" width="50px" />
+                    <img *ngIf="optionGroupProduct.acceptedFractions.split(',').indexOf('3')>=0
+                    && optionGroupProduct.acceptedFractions.split(',').indexOf('4')<0" src="../../../assets/imgs/pizza-toppings-3.21d8086e.svg" width="50px" />
+                    <img *ngIf="optionGroupProduct.acceptedFractions.split(',').indexOf('4')>=0" src="../../../assets/imgs/pizza-toppings-4.5712d0d0.svg" width="50px" />
+                </div>
+            </div>
+            <div fxFlex="100" *ngIf="optionGroupProduct.optionGroupIdNavigation">{{optionGroupProduct.optionGroupIdNavigation.name}}</div>
+            <div fxFlex="100">Cut into {{optionGroupProduct.slices}} Accepts {{getTextAcceptsFlavors(optionGroupProduct)}} flavors</div>
+            <div fxFlex="100" class="btns">
+                <button (click)="alterStatus(optionGroupProduct, 'UNAVAILABLE')" *ngIf="optionGroupProduct.status == 'AVAILABLE'"
+                    class="button-status btn btn-pause btn-pause-matte primary-border-color body5-semibold primary-color"
+                    mat-button>{{ 'pizzaSizeEditor.pause' | translate }}</button>
+                <button *ngIf="optionGroupProduct.status == 'AVAILABLE'"
+                    class="button-status btn btn-activate white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                    mat-raised-button>{{ 'pizzaSizeEditor.activated' | translate }}</button>
+                <button *ngIf="optionGroupProduct.status == 'UNAVAILABLE'"
+                    class="button-status btn btn-pause white-60-color primary-border-color primary-background-color body5-semibold primary-color"
+                    mat-raised-button>{{ 'pizzaSizeEditor.paused' | translate }}</button>
+                <button (click)="alterStatus(optionGroupProduct, 'AVAILABLE')" *ngIf="optionGroupProduct.status == 'UNAVAILABLE'"
+                    class="button-status btn btn-activate btn-pause-matte primary-border-color primary-border-color body5-semibold primary-color"
+                    mat-button>{{ 'pizzaSizeEditor.activate' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

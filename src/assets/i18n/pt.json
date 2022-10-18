@@ -1,0 +1,338 @@
+{
+	"auth": {
+		"create": "Criar nova conta",
+		"enter": "Entrar",
+		"loginwithwallet": "Conecte sua carteira com Metamask",
+		"nometamaskmsg": "Este aplicativo requer que o Metamask esteja instalado e funcionando. Por favor, instale o Metamask e tente novamente.",
+		"nometamasktitle": "Metamask não encontrado",
+		"or": "ou",
+		"ordownload_server": "baixe nosso software de servidor e coloque sua própria instância em execução.",
+		"pasword": "Senha",
+		"title": "Entrar",
+		"username": "Nome de usuário"
+	},
+	"categoryEditor": {
+		"alter": "Alter",
+		"alwaysavailable": "Sempre disponível",
+		"cancel": "Cancelar",
+		"continue": "Prosseguir",
+		"desc": "Selecione o modelo de categoria para dividir seu menu",
+		"descOption": "O item estará disponível sempre que o restaurante estiver aberto",
+		"details": "Detalhes da categoria",
+		"foods": "Alimentos, lanches, sobremesa",
+		"hereyou": "Aqui você define quando os clientes poderão comprar itens que se enquadram nessa categoria.",
+		"mainItens": "Itens principais",
+		"mainitens": "Itens principais",
+		"name": "Nome da Categoria",
+		"newcat": "Nova categoria",
+		"newcategory": "Nova categoria",
+		"optDesc": "Selecione os períodos em que o item estará disponível no aplicativo",
+		"optionsAvailable": "Disponível em dias e horários específicos",
+		"pizza": "Pizza",
+		"pizzaAvailability": "Disponibilidade",
+		"save": "Salvar",
+		"template": "Modelo"
+	},
+	"categoryListItem": {
+		"activate": "Ativar",
+		"activated": "Ativado",
+		"delete": "Excluir item",
+		"dlg": {
+			"msg": "Deseja excluir o item \"",
+			"title": "Atenção"
+		},
+		"duplicate": "Duplicar",
+		"edit": "Editar item",
+		"editbtn": "Editar",
+		"mandatory": "Obrigatório",
+		"max": "Max:",
+		"min": "Min:",
+		"optional": "Opcional",
+		"pause": "Pausa",
+		"paused": "Pausado"
+	},
+	"ccategory": {
+		"activate": "Ativar",
+		"activated": "Ativado",
+		"addItem": "Adicionar item",
+		"delete": "Excluir",
+		"dlg": {
+			"msg": "Deseja excluir a categoria \"",
+			"title": "Atenção"
+		},
+		"duplicate": "Duplicar",
+		"edit": "Editar",
+		"pause": "Pausa",
+		"paused": "Pausado"
+	},
+	"chooseMerchant": {
+		"create": "Criar Nova Loja",
+		"title": "Escolha uma loja:"
+	},
+	"chooseMerchantGroup": {
+		"createNew": "Criar nova marca",
+		"loadingfromtoken": "Carregando do token...",
+		"title": "Escolha uma Marca:"
+	},
+	"confirmDialog": {
+		"cancel": "Cancelar",
+		"ok": "OK"
+	},
+	"help": {
+		"accessthe": "Acesse o",
+		"howTo1": "Este aplicativo é usado para gerenciar o ODP-Store. Aqui você pode receber seus pedidos, manter seu catálogo de produtos atualizado e publicar seu 'Customer Order App'.",
+		"howTo2": "Cada um desses recursos pode ser acessado através do menu lateral no canto esquerdo.",
+		"howToSteps": "Comece em 3 passos:",
+		"howToUseTitle": "Como usar este aplicativo",
+		"step1end": "opção no menu lateral e cadastre seu catálogo de produtos com imagens, preços e opções.",
+		"step2end": "para publicar seu aplicativo de pedido do cliente. Escolha 'gerar e publicar'.",
+		"step3": "Compartilhe o link do aplicativo de pedidos de clientes recém-gerado com seus clientes, aponte seu domínio para ele e receba seus pedidos no",
+		"step3end": "opção no menu lateral.",
+		"thentogo": "Então vá para",
+		"title": "Bem-vindo à Plataforma Open Delivery",
+		"warningMsg": "Este software ainda em desenvolvimento, pode ter bugs ou erros, pode ter recursos incompletos e pode estar sujeito a\n            à mudança material.\n            Por favor use isto por sua conta e risco.",
+		"warningReport": "Por favor, reporte quaisquer bugs ou problemas ao nosso repositório github.",
+		"warningTitle": "Aviso"
+	},
+	"itemDetails": {
+		"category": "Categoria",
+		"chooseImage": "Escolher imagem",
+		"description": "Descrição",
+		"descriptionImg": "Aparece na listagem e no detalhe do prato.",
+		"descriptionPlaceholder": "legumes, salada e um carboidrato de sua escolha",
+		"format": "Formato:",
+		"itemImage": "imagem do item",
+		"mandatory": "Obrigatório",
+		"maxWeight": "Peso máximo:",
+		"minResolution": "Resolução mínima:",
+		"name": "Nome do Produto",
+		"posCode": "Código PDV"
+	},
+	"itemEditor": {
+		"cancel": "Cancelar",
+		"complementGroups": "Grupos complementares que compõem este item",
+		"continue": "Continuar",
+		"copyfrom": "Copiar de outro item",
+		"createAddon": "Criar grupo de complementos",
+		"newItem": "Novo item",
+		"nocomplement": "Não, este item não tem complemento",
+		"save": "Salvar",
+		"selectOption": "Selecione uma opção",
+		"tab": {
+			"Availability": "Disponibilidade",
+			"Complement": "Complemento",
+			"Details": "Detalhes",
+			"Price": "Preço"
+		},
+		"yescomplement": "Sim, este item tem complemento"
+	},
+	"itemPrice": {
+		"applyDiscount": "Aplicar Desconto",
+		"currentPrice": "Preço atual",
+		"discountPercent": "Desconto em %",
+		"mandatory": "Obrigatório",
+		"newPrice": "Novo preço",
+		"price": "Preço",
+		"removeDiscount": "Remover desconto"
+	},
+	"leftBarMenu": {
+		"title": {
+			"catalogs": "Catálogos",
+			"help": "Ajuda",
+			"logout": "Sair",
+			"orders": "Pedidos",
+			"publish": "Publicar",
+			"settings": "Definições"
+		}
+	},
+	"optionEditor": {
+		"activate": "Ativar",
+		"activated": "ativado",
+		"addon": "Nome do complemento",
+		"description": "Descrição",
+		"descriptionPlaceholder": "Descrição",
+		"dlg": {
+			"msg": "Deseja excluir a categoria \"",
+			"title": "Atenção"
+		},
+		"mandatory": "Obrigatório",
+		"pause": "pausa",
+		"paused": "Pausado",
+		"placeholder": "$ 0,00",
+		"poscode": "Código PDV",
+		"price": "Preço",
+		"salestatus": "Status de venda"
+	},
+	"optionGroupList": {
+		"deleteComplement": "Excluir complemento",
+		"duplicateComplement": "Complemento duplicado",
+		"edit": "Editar",
+		"mandatoryu": "Obrigatório",
+		"option": "Opção",
+		"optional": "Opcional",
+		"options": "Opções"
+	},
+	"optionGroupProductEditor": {
+		"aMandatory": "Obrigatório",
+		"addaddon": "Adicionar complemento",
+		"cancel": "Cancelar",
+		"complementsHeading": "Itens produzidos por sua loja, como marmitas, bolos e salgadinhos.",
+		"indicate": "Indique se esta categoria é necessária para encomendar o prato",
+		"indicateHowMany": "Indique quantos itens podem ser selecionados",
+		"mandatory": "Obrigatório",
+		"maximum": "máximo",
+		"minimum": "Mínimo",
+		"name": "Nome do grupo complementar",
+		"needadd": "O cliente deve selecionar 1 ou mais itens para adicionar o pedido ao carrinho",
+		"newname": "Novo nome do grupo de complementos",
+		"next": "Próximo",
+		"optional": "Opcional",
+		"optionalMsg": "O cliente pode ou não selecionar os itens",
+		"prepared": "Preparado",
+		"quantity": "Quantidade",
+		"tab":{
+			"Details":"Detalhes",
+			"Complements":"Complementos"
+		}
+	},
+	"orderDetail": {
+		"deliveryFee": "Taxa de entrega",
+		"estimatedDelivery": "Tempo de entrega estimado:",
+		"firstOrder": "Primeiro pedido em sua loja!",
+		"getintouch": "Entrar em contato",
+		"ordersInYourStore": "encomendas na sua loja!",
+		"placedAt": "Colocado em",
+		"prderSubtitle": "Ordem",
+		"takeoutmsg": "O Cliente irá retirar na loja. Não é necessário enviar este pedido.",
+		"total": "Valor total do pedido",
+		"zipcode": "código postal"
+	},
+	"orderStatus": {
+		"buttonAccept": "Aceitar",
+		"buttonDeny": "Negar",
+		"customerArrived": "O cliente chegou e está esperando em:",
+		"customerRequestCancellation": "Cancelamento do pedido do cliente!",
+		"driverStatus": {
+			"accepted the request": "aceitou o pedido",
+			"arrived at destination ": "Chegou ao destino",
+			"arrived at store": "chegou na loja",
+			"collected order": "Pedido coletado",
+			"going to store": "indo para a loja"
+		},
+		"instructionLabels": {
+			"Confirm order": "Confirmar pedido",
+			"Deliver until": "Entregar até"
+		},
+		"takeaway": "Leve embora",
+		"todeliver": "Entregar"
+	},
+	"orders": {
+		"filters": "Filtros",
+		"filtersValues": {
+			"On Delivery": "Em entrega",
+			"Pending": "Pendente"
+		},
+		"now": "Agora",
+		"scheduled": "Agendado",
+		"search": "Pesquisa de pedidos",
+		"statusTextValues": {
+			"Canceled": "Cancelado",
+			"Concluded": "Concluído",
+			"Dispatched": "despachou",
+			"In Preparation": "Em preparação",
+			"Order with ocurrences": "Ordem com ocorrências",
+			"Pending": "Pendente",
+			"Ready To Pickup": "Pronto para pegar"
+		}
+	},
+	"pageCategory": {
+		"add": "Adicionar categoria",
+		"addItem": "Adicionar item",
+		"allcategories": "Todas as categorias",
+		"categories": "Categorias",
+		"integration": "Integração",
+		"reorder": "Reordenar"
+	},
+	"pizzaSizeEditor": {
+		"activate": "Ativar",
+		"activated": "ativado",
+		"codpdv": "Código PDV",
+		"indicate": "Indique aqui quais os tamanhos das suas pizzas, quantas peças são cortadas e até mesmo quantos sabores o seu restaurante monta cada tamanho:",
+		"name": "Nome",
+		"newsize": "Novo tamanho",
+		"pause": "pausa",
+		"paused": "Pausado",
+		"pieces": "Peças",
+		"qtyFlavors": "Qtd. sabores",
+		"qtyPieces": "Qtd. Peças",
+		"salesum": "Resumo e status da venda",
+		"sizes": "Tamanhos"
+	},
+	"publish": {
+		"alreadyupdated": "Seu token NFT já está atualizado",
+		"appname": "Nome do Aplicativo",
+		"available": "nome disponível",
+		"chooseIpfsGateway": "Escolha um Gateway Ipfs",
+		"customgatewayendpoint": "Ponto de extremidade da API do gateway HTTP IPFS:",
+		"genbefore": "Por favor, gere o 'ODP-Customer Order App' antes de continuar",
+		"gencustomapp": "Gere o aplicativo ODP-Customer Order com manifesto personalizado no IPFS",
+		"generateandpublish": "Gerar e publicar",
+		"genhashdata": "Gerar HashData de armazenamento ODP no IPFS",
+		"lastknown": "Últimas publicações conhecidas",
+		"message": "Verifique as opções de publicação desejadas abaixo e clique em 'Gerar e publicar'",
+		"mintnft": "Cunhar NFT",
+		"mintorupdatenft": "Cunhar ou atualizar seu NFT",
+		"nft": {
+			"storename": "NOME DA LOJA ODP:",
+			"unavailable": "nome indisponível",
+			"youowner": "você é o dono"
+		},
+		"notfound": "Não encontrado",
+		"pleaseconnect": "conecte o Metamask ao PolygonNetwork.",
+		"posthashdata": "Postar novos hashdata no canal OrbitDB HashData",
+		"pubipns": "Publicar o novo CID do aplicativo ODP-Customer Order App para IPNS (endereço fixo)",
+		"publicStoreName": "Nome da Loja Pública:",
+		"publication": "Publicação",
+		"publicationsResults": "Resultados da publicação",
+		"result": {
+			"customerAppLink": "Link do aplicativo de pedido do cliente ODP:",
+			"hashdatalink": "Link de HashData da Loja ODP:",
+			"ipnslink": "Link do APP IPNS do pedido do cliente ODP:"
+		},
+		"seeonopensea": "Esta loja já tem dono. Escolha outro nome ou negocie esta loja no OpenSea.io",
+		"shortname": "Nome curto",
+		"show less options": "Mostrar menos opções",
+		"show more options": "Mostrar mais opções",
+		"title": "Publique o aplicativo de pedidos",
+		"updateIcon": "atualização de ícone",
+		"updatenft": "Atualizar NFT",
+		"wrongnet": "Rede errada. Por favor,"
+	},
+	"splash": {
+		"title": "Carregando aplicativo do gerenciador..."
+	},
+	"system": {
+		"logout": "Confirmar logout",
+		"msg": "Tem certeza que deseja sair?"
+	},
+	"wizardMerchant": {
+		"customEndpoint": "Ponto de extremidade personalizado:",
+		"email": "O email",
+		"emailPlaceholder": "Ex. seu@email.com",
+		"name": "Nome",
+		"orderschannel": "Canal de pedidos",
+		"phone": "Número de telefone",
+		"phoneMask": "Ex. +9 (99) 999-999-999",
+		"register": "Registrar loja",
+		"street": "Endereço",
+		"title": "Vamos cadastrar sua loja"
+	},
+	"wizardNewMerchantGroup": {
+		"appname": "Nome do Aplicativo",
+		"name": "Nome",
+		"namePlaceholder": "Digite o nome da sua empresa",
+		"register": "Registrar marca",
+		"shortname": "Nome curto do aplicativo",
+		"title": "Vamos cadastrar sua marca"
+	}
+}

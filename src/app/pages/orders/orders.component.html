@@ -1,0 +1,46 @@
+
+<as-split [direction]="_isHandset? 'vertical':'horizontal'" >
+    <as-split-area [size]="_isHandset ? 100 :30" [visible]="(!_isHandset||selectedStoredOrder==null)" order="0">
+        <div class="divList" fxFill [class.mat-elevation-z1]="true" [ngStyle]="{'width':(_isHandset ? '87vw':'')}" >
+            <mat-progress-bar class="bar" mode="determinate" [value]="(integratorSvc.progressToNextPooling|async)"></mat-progress-bar>
+
+            <mat-tab-group>
+                <mat-tab i18n-label="@@orders.now" label="{{ 'orders.now' | translate }}" fxLayout="column" fxFlex="100" (click)="orderTimingSelected='IMMEDIATE'"></mat-tab>
+                <mat-tab i18n-label="@@orders.scheduled" label="{{ 'orders.scheduled' | translate }}"  (click)="orderTimingSelected='SCHEDULED'"></mat-tab>
+            </mat-tab-group>
+            <div fxLayout="row" fxLayoutAlign="center center">
+                <mat-form-field fxFlex="50" class="" appearance="fill">
+                    <input matInput i18n-placeholder="@@orders.search" placeholder="{{ 'orders.search' | translate }}" (click)="mountList()">
+                </mat-form-field>
+                <mat-form-field fxFlex="50" appearance="fill">
+                    <mat-label i18n="@@orders.filters">{{ 'orders.filters' | translate }}</mat-label>
+                    <mat-select [formControl]="ComboFilters" multiple>
+                        <mat-optgroup *ngFor="let filter of filters" [label]="filter.tipo">
+                            <mat-option *ngFor="let f of filter.lst" [value]="f.value">{{('orders.filtersValues.'+f.label)|translate}}</mat-option>
+                        </mat-optgroup>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div *ngFor="let osg of listOrderStatusGroup" [ngClass]="{'dark':systemSvc.getTheme()=='dark'}">
+                <div class="statusBar" fxLayout="row" *ngIf="osg.dtoOrderStatus.length>0">
+                    <div class="statusText" fxFlex="90" i18n="@@orders.statusText">
+                        {{ 'orders.statusTextValues.'+osd[osg.status].statusGroup|translate}}
+                    </div>
+                    <div class="statusQtd" fxFlex="10"> {{osg.qtd}}</div>
+    
+                </div>
+                <div class="divOrderStatus" *ngFor="let o of osg.dtoOrderStatus" (click)="selectOrder(o)"
+                    [ngClass]="{'selectedOrder': selectedOrderStatus?.storedOrder.order.id==o.storedOrder.order.id, '' : selectedOrderStatus?.storedOrder?.order.id!=o.storedOrder.order.id }">
+                    <app-order-status [orderStatus]="o" [selected]="selectedOrderStatus?.storedOrder?.order.id==o.storedOrder.order.id" (changeStatusEvent)="changeStatus($event)"></app-order-status>
+                </div>
+            </div>
+            <div>
+            </div>
+        </div>
+    </as-split-area>
+    <as-split-area [size]="_isHandset ? 100 : 70" order="1" [visible]="(!_isHandset||selectedStoredOrder!=null)">
+        <div [@slideInOutAnimation] *ngIf="selectedStoredOrder!=null" fxFill [class.mat-elevation-z8]="selectedStoredOrder!=null">
+                <app-order-detail (closeEvent)="selectOrder(null)" [storedOrder]="selectedStoredOrder" fxFill (changeStatusEvent)="changeStatus($event)"></app-order-detail>
+        </div>
+    </as-split-area>
+</as-split>

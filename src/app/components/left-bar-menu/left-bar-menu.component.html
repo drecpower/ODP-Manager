@@ -1,0 +1,103 @@
+<div class="leftbar" [@openCloseMenu]="showText?'open':'closed'"
+    [ngClass]="{'expanded':(showText),'compressed':(!showText)}" [class.mat-elevation-z5]="true" fxFlex
+    fxLayout="column" *ngIf="
+    (systemSvc.isSystemReadyAsync|async) 
+    && (
+            !route.routerState.snapshot.url.startsWith('/wizard')
+            &&!route.routerState.snapshot.url.startsWith('/choose')
+            &&!route.routerState.snapshot.url.startsWith('/auth')
+        )
+    ">
+
+    <div class='menu_item' *ngIf="systemSvc.selectedMerchantGroup" fxLayout="row" fxLayoutAlign="start center">
+        <div [@growAnimation] *ngIf="showText" class="menu_text" (click)="toogleShowText()">
+            <div class="logo">
+                <div class="logo-img">
+                    <img class="icoapp" *ngIf="!imgLogo" src="assets/imgs/logo.png">
+                    <img class="icoapp" *ngIf="imgLogo" [src]="imgLogo">
+                </div>
+            </div>
+            <div class="name-logo">
+                {{systemSvc.selectedMerchant.name}}
+            </div>
+        </div>
+    </div>
+
+    <div class='menu_item' fxLayout="row" fxLayoutAlign="start center">
+        <button mat-icon-button (click)="toogleShowText()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <div [@growAnimation] *ngIf="showText" class="menu_text">
+            Menu
+        </div>
+    </div>
+
+    <div class="leftbar_space menu_item">
+
+    </div>
+    <div class='menu_item' fxLayout="row" fxLayoutAlign="start center" [routerLink]="['/orders']">
+        <button mat-icon-button>
+            <mat-icon>receipt_long</mat-icon>
+        </button>
+        <div [@growAnimation] *ngIf="showText" class="menu_text" i18n="@@leftBarMenu.title.orders">
+            {{ 'leftBarMenu.title.orders' | translate }}
+        </div>
+    </div>
+    <!-- <div class='menu_item' fxLayout="row" fxLayoutAlign="start center" 
+    (click)="notImplemented()"
+     >
+        <button mat-icon-button>
+            <mat-icon>delivery_dining</mat-icon>
+        </button>
+        <div [@growAnimation] *ngIf="showText" class="menu_text" i18n="@@leftBarMenu.title.delivery">
+            Delivery
+        </div>
+    </div> -->
+    <div class='menu_item' fxLayout="row" fxLayoutAlign="start center" [routerLink]="['/category']">
+        <button mat-icon-button>
+            <mat-icon>menu_book</mat-icon>
+        </button>
+        <div [@growAnimation] *ngIf="showText" class="menu_text" i18n="@@leftBarMenu.title.catalogs">
+            {{ 'leftBarMenu.title.catalogs' | translate }}
+        </div>
+    </div>
+    <div class='menu_item' fxLayout="row" fxLayoutAlign="start center" [routerLink]="['/publish']">
+        <button mat-icon-button>
+            <mat-icon>storefront</mat-icon>
+        </button>
+        <div [@growAnimation] *ngIf="showText" class="menu_text" i18n="@@leftBarMenu.title.publish">
+            {{ 'leftBarMenu.title.publish' | translate }}
+        </div>
+    </div>
+    <div fxFlex></div>
+    <div class="leftbar_space menu_item">
+    </div>
+    <div class='menu_item' fxLayout="row" fxLayoutAlign="start center" [routerLink]="['/help']">
+        <button mat-icon-button>
+            <mat-icon>support</mat-icon>
+        </button>
+        <div [@growAnimation] *ngIf="showText" class="menu_text" i18n="@@leftBarMenu.title.help">
+            {{ 'leftBarMenu.title.help' | translate }}
+        </div>
+    </div>
+    <div class='menu_item' fxLayout="row" fxLayoutAlign="start center" [routerLink]="['/settings']">
+        <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+        </button>
+        <div [@growAnimation] *ngIf="showText" class="menu_text" i18n="@@leftBarMenu.title.settings">
+            {{ 'leftBarMenu.title.settings' | translate }}
+        </div>
+    </div>
+    <div class='menu_item' fxLayout="row" fxLayoutAlign="start center" (click)="systemSvc.logout()">
+        <button mat-icon-button>
+            <mat-icon>logout</mat-icon>
+        </button>
+        <div [@growAnimation] *ngIf="showText" class="menu_text" i18n="@@leftBarMenu.title.logout">
+            {{ 'leftBarMenu.title.logout' | translate }}
+        </div>
+    </div>
+    <div *ngIf="systemSvc.version" class="sysver">
+            {{systemSvc.version}}
+    </div>
+
+</div>

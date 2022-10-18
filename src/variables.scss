@@ -1,0 +1,49 @@
+@use '@angular/material' as mat;
+@import "~@angular/material/theming";
+
+@include mat.core();
+
+// Define a light theme
+$light-primary: mat.define-palette(mat.$indigo-palette);
+$light-accent: mat.define-palette(mat.$pink-palette);
+$light-theme: mat.define-light-theme((
+ color: (
+   primary: $light-primary,
+   accent: $light-accent,
+ )
+));
+$_background: map-get($light-theme, background);
+$_foreground: map-get($light-theme, foreground);
+$light-background-color: mat-color($_background, background);
+$light-foreground-color: mat-color($_foreground, text);
+
+// Define a dark theme
+$dark-primary: mat.define-palette(mat.$pink-palette);
+$dark-accent: mat.define-palette(mat.$blue-gray-palette);
+$dark-theme: mat.define-dark-theme((
+ color: (
+   primary: $dark-primary,
+   accent: $dark-accent
+ )
+));
+$_background: map-get($dark-theme, background);
+$_foreground: map-get($dark-theme, foreground);
+$dark-background-color: mat-color($_background, background);
+$dark-foreground-color: mat-color($_foreground, text);
+$primary: #3f51b5;//#6296a6; //#fc9127;
+$success: #50a773;
+$warning: #ffa124;
+$error: #ee4c58;
+$darker: #fa7424;
+$extra-light-grey: #f4f4f4;//#dcdcdc
+$light-grey: #dcdcdc;
+$grey: #a6a5a5;
+$dark-grey: #7a7a7a;//#929090;
+$white: #fefefe;
+$white-60: #f2f2f2;
+$white-80: #fcfcfc;
+$black: #000000;
+$light-black-color: #3e3e3e;
+$white-opacity:#ffffffbb;
+$disabled-icon-color: $grey;
+

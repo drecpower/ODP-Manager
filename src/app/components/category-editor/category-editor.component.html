@@ -1,0 +1,157 @@
+<div class="content">
+    <div class="category-template" *ngIf="choosingTemplate">
+        <div class="img" fxLayout="row">
+            <div fxFlex="70">
+                <div class="heading1 new-category">{{ 'categoryEditor.newcategory' | translate }}</div>
+                <div class="body3 new-category-description">
+                    {{ 'categoryEditor.desc' | translate }}
+                </div>
+            </div>
+            <div fxFlex="30" fxLayoutAlign="end center" class="close-icon">
+                <mat-icon class="primary-color" (click)="back()">close</mat-icon>
+            </div>
+        </div>
+        <div class="pointer option" (click)="chooseOption('DEFAULT')">
+            <div class="light-grey-border-color item" fxLayout="row">
+                <div fxFlex="20">
+                    <mat-icon class="primary-color">fastfood</mat-icon>
+                </div>
+                <div fxFlex="80">
+                    <div class="heading3">
+                        {{ 'categoryEditor.mainitens' | translate }}
+                    </div>
+                    <div>
+                        {{ 'categoryEditor.foods' | translate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="pointer option" (click)="chooseOption('PIZZA')">
+            <div class="light-grey-border-color item" fxLayout="row">
+                <div fxFlex="20">
+                    <mat-icon class="primary-color">local_pizza</mat-icon>
+                </div>
+                <div fxFlex="80">
+                    <div class="heading3">
+                        Pizza
+                    </div>
+                    <div>
+                        Foods, snacks, dessert
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div *ngIf="!choosingTemplate">
+        <div>
+            <div *ngIf="!category.name" class="heading1 new-category">{{ 'categoryEditor.newcat' | translate }}</div>
+            <div *ngIf="category.name" class="heading1 new-category">{{category.name}}</div>
+            <div class="body3 new-category-description">{{ 'categoryEditor.details' | translate }}</div>
+            <div class="tabs" fxLayout="row" *ngIf="category.template == 'PIZZA'">
+                <div class="tab heading2-regular" *ngFor="let t of listTabs" (click)="setTab(t)"
+                    [ngClass]="{'primary-color': t==currentTab, 'currentTab-underline': t==currentTab, 'grey-color': t!=currentTab}">
+                    {{'categoryEditor.tab.'+t|translate}}
+                </div>
+            </div>
+            <mat-divider *ngIf="category.template == 'PIZZA'"></mat-divider>
+            <div *ngIf="currentTab == 'Details'">
+                <div class="template-content">
+                    <div class="template heading3-regular">{{ 'categoryEditor.template' | translate }}</div>
+                    <div class="option">
+                        <div class="light-grey-border-color item" fxLayout="row">
+                            <div fxFlex="20">
+                                <mat-icon *ngIf="category.template=='DEFAULT'" class="primary-color">fastfood</mat-icon>
+                                <mat-icon *ngIf="category.template=='PIZZA'" class="primary-color">local_pizza
+                                </mat-icon>
+                            </div>
+                            <div fxFlex="70">
+                                <div class="heading3 title-category" *ngIf="category.template=='DEFAULT'">
+                                    {{ 'categoryEditor.mainItens' | translate }}
+                                </div>
+                                <div class="heading3 title-category" *ngIf="category.template=='PIZZA'">
+                                    {{ 'categoryEditor.pizza' | translate }}
+                                </div>
+                            </div>
+                            <div class="pointer heading3-regular title-category" fxFlex="10">
+                                <div *ngIf="!category.id" (click)="choosingTemplate=true" class="alter primary-color">
+                                    {{ 'categoryEditor.alter' | translate }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="heading2-regular category-name">{{ 'categoryEditor.name' | translate }}</div>
+                    <div>
+                        <!-- <mat-input-container floatPlaceholder="auto">
+                        <input matInput formControlName="formControlName" type="text" required placeholder="">
+                </mat-input-container> -->
+                        <mat-form-field appearance="outline">
+                            <!-- <mat-label class="dark-grey-color">Category Name</mat-label> -->
+                            <input class="category-name-input" matInput [(ngModel)]="category.name"
+                                placeholder="Example: Flagships or promotions">
+                            <!-- <mat-form-field appearance="outline">
+                            <mat-label>Outline form field</mat-label>
+                            <input matInput placeholder="Placeholder">
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                            <mat-hint>Hint</mat-hint>
+                        </mat-form-field> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div *ngIf="category.template == 'PIZZA'">
+                    <div class="heading2-regular category-name">{{ 'categoryEditor.pizzaAvailability' | translate }}</div>
+                    <div>
+                        <div class="body4 new-category-description">{{ 'categoryEditor.hereyou' | translate }}</div>
+                    </div>
+                    <div class="">
+                        <div class="">
+                            <mat-radio-button value="2">{{ 'categoryEditor.alwaysavailable' | translate }}</mat-radio-button>
+                            <div class="grey-color description-option">{{ 'categoryEditor.descOption' | translate }}</div>
+                        </div>
+                        <div class="options-available">
+                            <mat-radio-button value="2">{{ 'categoryEditor.optionsAvailable' | translate }}</mat-radio-button>
+                            <div class="grey-color  description-option">{{ 'categoryEditor.optDesc' | translate }}</div>
+                        </div>
+                    </div>
+
+                    <!-- <div>
+                        <div>
+                        
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <div *ngIf="currentTab == 'Sizes' && category.template == 'PIZZA'">
+                <app-pizza-size-editor [optionGroupProducts]="optionGroupProducts" [load]="loadSizePizza">
+                </app-pizza-size-editor>
+            </div>
+            <div *ngIf="currentTab == 'Crusts' && category.template == 'PIZZA'">
+                <app-pizza-crust-editor></app-pizza-crust-editor>
+            </div>
+            <div *ngIf="currentTab == 'Edges' && category.template == 'PIZZA'">
+                <app-pizza-edge-editor></app-pizza-edge-editor>
+            </div>
+        </div>
+        <div>
+        </div>
+        <div class="footer">
+            <div fxFlex="100" fxLayout="row">
+                <div>
+                    <button mat-button color="primary" class="primary-border-color cancel"
+                        (click)="dialogRef.close()">{{ 'categoryEditor.cancel' | translate }}</button>
+                </div>
+                <div *ngIf="loadSave">
+                    <mat-spinner class="spinner" [diameter]="30"></mat-spinner>
+                </div>
+                <div *ngIf="!loadSave">
+                    <button mat-raised-button color="primary" [disabled]="category.name == tmpName && category.template != 'PIZZA'" class="save"
+                        *ngIf="category.id || category.template != 'PIZZA'" (click)="continue()">{{ 'categoryEditor.save' | translate }}</button>
+                    <button mat-raised-button color="primary" [disabled]="category.name == tmpName" class="save"
+                        *ngIf="!category.id && category.template == 'PIZZA'" (click)="continue()">{{ 'categoryEditor.continue' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,48 @@
+<div class="content" fxLayout="column">
+    <div class="" fxLayout="row" *ngIf="!applyingDiscount">
+        <div fxFlex.lt-md="60" fxFlex.gt-sm="25" fxLayout="column">
+            <div fxLayout="row">
+                <div class="body1-semibold price-title">{{ 'itemPrice.price' | translate }} </div>
+                <div class="grey-color mandatory">({{ 'itemPrice.mandatory' | translate }})</div>
+            </div>
+            <div fxFlex="100">
+                <input class="price light-grey-border-color" placeholder="$" [(ngModel)]="item.price">
+            </div>
+        </div>
+        <div fxFlex.lt-md="40" fxFlex.gt-sm="25" fxLayoutAlign="start end" class="apply-discount">
+            <button mat-raised-button color="primary" [disabled]="item.price==undefined"
+                class="btn primary-background-color white-80-color" (click)="applyDiscount()">{{ 'itemPrice.applyDiscount' | translate }}</button>
+        </div>
+        <div fxHide.lt-md="" fxFlex.gt-sm="50"></div>
+    </div>
+    <div class="extra-light-grey-background-color discount-area"  fxLayout="column" *ngIf="applyingDiscount">
+        <div fxLayout="row wrap">
+            <div class="field" fxFlex="30" fxFlex.xs="50">
+                <div class="body1-semibold price-title">{{ 'itemPrice.currentPrice' | translate }} </div>
+                <div>
+                    <input class="light-grey-border-color price" placeholder="$0,00" [(ngModel)]="item.originalPrice"
+                        disabled="true">
+                </div>
+            </div>
+            <div fxHide.gt-xs fxFlex.xs="50"> </div>
+            <div class="field" fxFlex="30" fxFlex.xs="50">
+                <div class="body1-semibold price-title">{{ 'itemPrice.newPrice' | translate }} </div>
+                <div>
+                    <input class="light-grey-border-color price" placeholder="$0,00" [(ngModel)]="item.price"
+                        (ngModelChange)="changePrice()">
+                </div>
+            </div>
+            <div class="field" fxFlex="40" fxFlex.xs="50">
+                <div class="body1-semibold price-title">{{ 'itemPrice.discountPercent' | translate }} </div>
+                <div>
+                    <input class="light-grey-border-color" placeholder="0%" [(ngModel)]="percentage"
+                        (ngModelChange)="changePercentage()">
+                </div>
+            </div>
+        </div>
+        <mat-divider *ngIf="applyingDiscount"></mat-divider>
+        <div *ngIf="applyingDiscount" class="remove pointer" (click)="removeDiscount()">
+            <span class="body1-semibold primary-color remove-text" >{{ 'itemPrice.removeDiscount' | translate }}</span>
+        </div>
+    </div>
+</div>

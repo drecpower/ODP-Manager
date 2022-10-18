@@ -1,0 +1,212 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+    <!-- <div class="content" fxLayoutAlign="center">
+        <h1>{{systemSvc.selectedMerchantGroup.name }} - {{systemSvc.selectedMerchant.name}}</h1>
+    </div> -->
+    <section class="content wrapanywhere" fxLayout="column">
+        <h1>
+            {{ 'publish.title' | translate }}
+        </h1>
+        <p>
+            {{ 'publish.message' | translate }}
+        </p>
+        <div fxLayout="column">
+
+
+            <div fxFlex fxLayout.gt-xs="row" fxLayout.lt-sm="column">
+                <div fxLayout="column" [ngClass.gt-xs]="{'incontent': true}">
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <img class="appicon" [src]="this.appicon" />
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="center center">
+                        <small class="hyperlink" (click)="mupload.uploadFile()">{{ 'publish.updateIcon' | translate }}</small>
+                    </div>
+                    <div class="invisible">
+                        <app-mff-upload-file #mupload (onComplete)="onUploadIcon($event)"></app-mff-upload-file>
+                    </div>
+                </div>
+                <div fxFlex fxLayout="column" [ngClass.gt-xs]="{'incontent': true}" >
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ 'publish.appname' | translate }}</mat-label>
+                        <input matInput [(ngModel)]="this.appname">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ 'publish.shortname' | translate }}</mat-label>
+                        <input matInput [(ngModel)]="this.shortname">
+                    </mat-form-field>
+                </div>
+            </div>
+            
+            <div fxLayout="row" fxLayoutAlign="end center" class="">
+                <small (click)="this.showmoreoptions=!this.showmoreoptions" class="hyperlink bottomstick">
+                    {{ 'publish.show '+(this.showmoreoptions?'less':'more')+' options'|translate }}
+                    {{this.showmoreoptions?'▲':'▼'}}
+                </small>
+            </div>
+
+            <div fxLayout="column" *ngIf="this.showmoreoptions" >
+
+                <mat-checkbox color="primary" checked="true" disabled >
+                    {{ 'publish.genhashdata' | translate }}
+                </mat-checkbox>
+                <mat-checkbox [(ngModel)]="generateCustomerAppEnabled" color="primary" >
+                    {{ 'publish.gencustomapp' | translate }}
+                </mat-checkbox>
+                <mat-checkbox [(ngModel)]="publishCustomerAppEnabled" color="primary" >
+                    {{ 'publish.pubipns' | translate }}
+                </mat-checkbox>
+                <mat-checkbox [(ngModel)]="pushHashDataToOrbitDbEnabled" color="primary" >
+                    {{ 'publish.posthashdata' | translate }}
+                </mat-checkbox>
+                <br>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>{{ 'publish.chooseIpfsGateway' | translate }}</mat-label>
+                    <mat-select [(ngModel)]="selectedIpfsGateway" (selectionChange)="setCurrentGateway(this)">
+                        <mat-option *ngFor="let gw of listGateways" [value]="gw">{{gw}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+                <div *ngIf="useCustomIpfsGatewayEnabled">
+                    <mat-form-field appearance="fill" fxFlex>
+                        <mat-label>{{ 'publish.customgatewayendpoint' | translate }}</mat-label>
+                        <input matInput [(ngModel)]="customGateway">
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+        </div>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="end start">
+            <button color="primary" mat-raised-button (click)="generateAndPublish()">
+                {{ 'publish.generateandpublish' | translate }}
+            </button>
+        </div>
+        <article *ngIf="this.publishingHashData" class="inner-rounded">
+            <br>
+            <h2>
+                {{ 'publish.publicationsResults' | translate }}
+            </h2>
+            <div fxLayout="row">
+                <b>{{ 'publish.result.hashdatalink' | translate }} </b> &nbsp;<mat-progress-spinner *ngIf="publishingHashData==1"
+                    [mode]="'indeterminate'" diameter="20"></mat-progress-spinner> 
+
+                    <span *ngIf="genHashDataMsg">&nbsp; {{genHashDataMsg}}...</span>
+                    
+                    <a *ngIf="publishingHashData==2"
+                    href="{{getIpfsGWLink(lastPublication)}}" target="_blank">{{getIpfsGWLinkView(lastPublication)}}</a>
+            </div>
+            <br>
+
+            <div fxLayout="row">
+                <b>{{ 'publish.result.customerAppLink' | translate }} </b>&nbsp;<mat-progress-spinner *ngIf="publishingAppData==1"
+                    [mode]="'indeterminate'" diameter="20"></mat-progress-spinner> 
+                    
+                    <span *ngIf="genCustomerAppMsg">&nbsp; {{genCustomerAppMsg}}...</span>
+
+                    <a *ngIf="publishingAppData==2"
+                    href="{{getIpfsGWLink(lastAppPublication)}}" target="_blank">ipfs://{{(lastAppPublication)}}</a>
+            </div>
+            <br>
+            <div fxLayout="row">
+                <b>{{ 'publish.result.ipnslink' | translate }} </b>&nbsp;<mat-progress-spinner *ngIf="publishingIPNS==1"
+                    [mode]="'indeterminate'" diameter="20"></mat-progress-spinner> 
+                    
+                    <span *ngIf="genIpnsMsg">&nbsp; {{genIpnsMsg}}...</span>
+
+                    <a *ngIf="publishingIPNS==2"
+                    href="{{getIpnsGWLink(lastIPNSPublication)}}" target="_blank">ipns://{{(lastIPNSPublication)}}</a>
+            </div>
+        </article>
+    </section>
+    <section class="content wrapanywhere" fxLayout="column" >
+        <h1>
+            {{ 'publish.mintorupdatenft' | translate }}
+        </h1>
+        <div fxLayout="column">
+            <div>
+                <mat-form-field appearance="fill" fxFlex>
+                    <mat-label>{{ 'publish.nft.storename' | translate }}</mat-label>
+                    <input matInput [(ngModel)]="odpStoreNameValue" (ngModelChangeDebounced)="checkNFT()">
+                    <mat-hint class="hintwarn" *ngIf="!isWrongNetwork && (!isNftFree && !isNftOwner)">{{ 'publish.nft.unavailable' | translate }}
+                    </mat-hint>
+                    <mat-hint class="hintnice" *ngIf="!isWrongNetwork && (isNftFree)">{{ 'publish.available' | translate }} 👍</mat-hint>
+                    <mat-hint *ngIf="!isWrongNetwork && (isNftOwner)">{{ 'publish.nft.youowner' | translate }}</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+        <br>
+        <div fxLayout="row" fxLayoutAlign="end start">
+            <button *ngIf="isNftFree" [disabled]="publishingAppData<2||isWrongNetwork" color="primary" mat-raised-button
+                (click)="mintNFT()">
+                {{ 'publish.mintnft' | translate }}
+            </button>
+            <button *ngIf="!isNftFree"
+                [disabled]="(publishingAppData<2 && isNftOwner)||lastAppPublication==nftHash||isWrongNetwork||(!isWrongNetwork && (!isNftFree && !isNftOwner))|| lastHashApp==lastAppPublication"
+                color="primary" mat-raised-button (click)="updateNFT()">
+                {{ 'publish.updatenft' | translate }}
+            </button>
+        </div>
+        <div *ngIf="isWrongNetwork">
+            <span>{{ 'publish.wrongnet' | translate }}<a href="#/publish" (click)="checkNetwork()">{{ 'publish.pleaseconnect' | translate }}</a></span>
+        </div>
+        <div *ngIf="!isWrongNetwork">
+            <div *ngIf="publishingAppData<2">
+                <span>{{ 'publish.genbefore' | translate }}</span>
+            </div>
+            <div *ngIf="publishingAppData==2 && (lastAppPublication==nftHash) && hasMintedOrUpdatedNftFlag || (lastHashApp==lastAppPublication && !isNftFree)">
+                <span>{{ 'publish.alreadyupdated' | translate }}</span>
+            </div>
+            <div *ngIf="publishingAppData==2 && !isNftFree && !isNftOwner && !workingWeb3">
+                <span>{{ 'publish.seeonopensea' | translate }}</span>
+            </div>
+        </div>
+
+        <article *ngIf="this.workingWeb3 || this.hasMintedOrUpdatedNftFlag || this.hasMintedOrUpdatedErrorNftFlag" class="inner-rounded">
+            <br>
+            <h2>
+                {{workingWeb3Title}} Nft status
+            </h2>
+            <div fxLayout="row">
+                <b>ODP-Store NFT Link: </b> &nbsp;<mat-progress-spinner *ngIf="workingWeb3"
+                    [mode]="'indeterminate'" diameter="20"></mat-progress-spinner> 
+
+                    <span *ngIf="workingWeb3Msg" [ngClass]="{hintwarn:hasMintedOrUpdatedErrorNftFlag}" >&nbsp; {{workingWeb3Msg}}...</span>
+                    
+                    <a *ngIf="this.hasMintedOrUpdatedNftFlag"
+                href="https://opendelivery.app/{{(this.lastMintedNftName)}}"
+                target="_blank">https://opendelivery.app/{{(this.lastMintedNftName)}}</a>
+            </div>
+        </article>
+
+    </section>
+    <section class="content wrapanywhere" fxLayout="column">
+        <h1>
+            {{ 'publish.lastknown' | translate }}
+        </h1>
+        <p *ngIf="this.lastKnownPublications.length==0">
+            {{ 'publish.notfound' | translate }}
+        </p>
+        <p *ngFor="let publication of lastKnownPublications">
+            <b>{{ 'publish.publication' | translate }} ({{publication.createdAt|date:'yyyy-MM-ddTHH:mm:ss'}})</b>
+            <br *ngIf="publication.odpName">
+            <b *ngIf="publication.odpName">{{ 'publish.publicStoreName' | translate }} </b>
+            <a *ngIf="publication.odpName"
+                href="https://opendelivery.app/{{(publication.odpName)}}"
+                target="_blank">https://opendelivery.app/{{(publication.odpName)}}</a>
+            <br>
+            <b> ODP {{publication.hashPackage?"Store":"HashData"}} Link: </b>
+            <a *ngIf="!publication.hashPackage" href="{{getIpfsGWLink(publication.hash)}}"
+                target="_blank">{{getIpfsGWLinkView(publication.hash)}}</a>
+            <a *ngIf="publication.hashPackage" href="{{getIpfsGWLink(publication.hashPackage)}}"
+                target="_blank">{{getIpfsGWLinkView(publication.hashPackage)}}</a>
+            <br *ngIf="publication.hashPackage">
+            <b *ngIf="publication.hashPackage">HashData: </b>
+            <a *ngIf="publication.hashPackage" href="{{getIpfsGWLink(publication.hash)}}"
+                target="_blank">{{getIpfsGWLinkView(publication.hash)}}</a>
+            <br>
+
+        </p>
+    </section>
+</div>

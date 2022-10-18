@@ -1,0 +1,74 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFill >
+
+    <p>Debug and tests tool</p>
+    <BR>
+
+        <span>
+            {{response}}
+        </span>
+
+    <br>
+    <textarea [(ngModel)]="txttest">
+    
+    </textarea>
+    <br>
+    
+    <button (click)="testGetList()">
+        Test Get List
+    </button>
+
+    <button (click)="testGetOne()">
+        Test Get One
+    </button>
+
+    <button (click)="test()">
+        Test Add Exist
+    </button>
+
+    <button (click)="test(true)">
+        Test Add New One
+    </button>
+
+    <button (click)="deleteTest()">
+        Test Delete exist
+    </button>
+
+    <button (click)="systemSvc.logout()">
+        logout
+    </button>
+
+    <button [routerLink]="['/choose-merchant-group']">
+        choose-merchant-group
+    </button>
+    <button [routerLink]="['/choose-merchant']">
+        choose-merchant
+    </button>
+    <button [routerLink]="['/orders']">
+        orders
+    </button>
+
+    <br>
+
+    <input type="text" [(ngModel)]="delinetchannel" />
+    <button (click)="createDelinetChannel(delinetchannel)">
+        Create Delinet Channel
+    </button>
+    <br>
+
+    <button (click)="sendDelinetEvent()">
+        Send to Delinet Channel
+    </button>
+<BR>
+    <button (click)="testPLCEvent()">
+        Add PLC Event
+    </button>
+
+    <BR>
+        <button (click)="testPublishPackage()">
+            TEST PACKAGE GENERATION
+        </button>
+
+        <button (click)="testBackup()">
+            TEST Backup
+        </button>
+</div>

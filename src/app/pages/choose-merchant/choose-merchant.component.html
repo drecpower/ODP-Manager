@@ -1,0 +1,20 @@
+<div fxLayout="column" fxLayoutAlign="center center" fxFill >
+    <div class="logo-sticker" [class.mat-elevation-z10]="true">
+        <img class="icoapp" *ngIf="!imgLogo" src="assets/imgs/logo.png" >
+        <img class="icoapp" *ngIf="imgLogo" [src]="imgLogo">
+    </div>
+    <h1 i18n="@@chooseMerchant.title">{{ 'chooseMerchant.title' | translate }}</h1>
+    <div>
+        <div class="optionbox" *ngFor="let m of MerchantList">
+            <button fxFlex="100" mat-raised-button (click)="selectMerchant(m)">
+                {{m.name}}
+            </button>
+            
+        </div>
+        <div class="optionbox">
+            <button fxFlex="100" mat-raised-button color="primary" (click)="createNewMerchant()" i18n="@@chooseMerchant.create">
+                {{ 'chooseMerchant.create' | translate }}
+            </button>
+        </div>
+    </div>
+</div>

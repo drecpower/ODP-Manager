@@ -1,0 +1,68 @@
+<div class="content" fxLayout="column">
+    <div class="item-name">
+        <span class="heading1" *ngIf="item && item.productIdNavigation && item.productIdNavigation.name">
+            {{item.productIdNavigation.name}}</span>
+        <span class="heading1" *ngIf="!(item && item.productIdNavigation && item.productIdNavigation.name)"> {{ 'itemEditor.newItem' | translate }}</span>
+    </div>
+    <div class="tabs" fxLayout="row">
+        <div class="tab heading2-regular" *ngFor="let t of listTabs" (click)="setTab(t)"
+            [ngClass]="{'primary-color': t==currentTab, 'currentTab-underline': t==currentTab, 'grey-color': t!=currentTab}">
+            {{('itemEditor.tab.'+t)|translate}}
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="body">
+        <app-item-details *ngIf="currentTab=='Details'" [item]="item"></app-item-details>
+        <app-item-price *ngIf="currentTab=='Price'" [item]="item"></app-item-price>
+        <div *ngIf="currentTab=='Complement'">
+            <div class="question extra-light-grey-background-color">
+                <div class="body1 title-option">{{ 'itemEditor.selectOption' | translate }}</div>
+                <mat-radio-group aria-label="Select an option" [(ngModel)]="hasComplement" fxLayout="column">
+                    <mat-radio-button [value]="false">{{ 'itemEditor.nocomplement' | translate }}</mat-radio-button>
+                    <mat-radio-button [value]="true">{{ 'itemEditor.yescomplement' | translate }}</mat-radio-button>
+                </mat-radio-group>
+                <div></div>
+            </div>
+            <div *ngIf="hasComplement && item.productIdNavigation.optionGroupProduct && item.productIdNavigation.optionGroupProduct.length>0"
+                class="mat-elevation-z2">
+                <div class="group body1-bold light-grey-border-color">
+                    {{ 'itemEditor.complementGroups' | translate }}
+                </div>
+                <div class="group-list light-grey-border-color">
+                    <div class="group-list-item" *ngFor="let ogp of item.productIdNavigation.optionGroupProduct">
+                        <app-option-group-list-item [ogp]="ogp" (onDeletedOptionGroup)="onDeletedOptionGroup(ogp)">
+                        </app-option-group-list-item>
+                    </div>
+                </div>
+
+            </div>
+            <div class="btns-create-copy" *ngIf="hasComplement">
+                <button mat-button color="primary" class="btn-create primary-border-color"
+                    (click)="addComplementGroup()">{{ 'itemEditor.createAddon' | translate }}</button>
+                <button mat-button color="primary" class="primary-border-color">{{ 'itemEditor.copyfrom' | translate }}</button>
+            </div>
+            <div class="height"></div>
+            <!-- <app-item-complement *ngIf="hasComplement" [item]="item"></app-item-complement> -->
+        </div>
+        <app-item-classification *ngIf="currentTab=='Classification'" [item]="item"></app-item-classification>
+        <app-item-availability *ngIf="currentTab=='Availability'" [item]="item"></app-item-availability>
+    </div>
+    <div class="footer-btn white-background-color" fxLayoutAlign="end start">
+        <div fxLayout="row">
+            <div *ngIf="!load">
+                <button mat-button color="primary" class="btn-cancel primary-border-color"
+                    (click)="cancel()">{{ 'itemEditor.cancel' | translate }}</button>
+            </div>
+            <div *ngIf="load">
+                <mat-spinner class="spinner" [diameter]="30"></mat-spinner>
+            </div>
+            <div *ngIf="!load">
+                <button mat-raised-button color="primary" class="primary-background-color white-80-color"
+                    (click)="continue()">
+                    <span *ngIf="item && item.id">{{ 'itemEditor.save' | translate }}</span>
+                    <span *ngIf="!(item && item.id)">{{ 'itemEditor.continue' | translate }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
